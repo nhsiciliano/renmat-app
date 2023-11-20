@@ -1,95 +1,63 @@
-import Image from 'next/image'
 import styles from './page.module.css'
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
+    <div className={styles.container}>
+      <div className={styles.left}>
+        <h1>Bienvenidos</h1>
+        <br />
+        <p>Le damos la bienvenida al sitio de Registro de Microangiopatías trombóticas en Argentina.
+          <br />
+          <br />
+          Se ha creado este espacio abierto a la comunidad de profesionales que disgnostican, estudian
+          , tratan y realizan el seguimiento de pacientes con esta enfermedad.
+          <br />
+          <br />
         </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+        <h2>Descripción del sitio</h2>
+        <br />
+        <p>En este espacio usted encontrará la posibilidad de participar en el registro con la
+          inclusión de sus pacientes en el sistema RedCap. Desde aquí podrá administrar
+          las historias clínicas de sus pacientes, su evolución, los eventos e intercurrencias
+          así como los nuevos tratamientos que hayan recibido, realizar estadísticas,
+          participar activamente de las investigaciones y publicaciones que desde el registro
+          se generen.</p>
+        <br />
+        <h2>¿A quién está dirigido el registro?</h2>
+        <br />
+        <p>Se invita a todos los profesionales, médicos, bioquímicos y especialistas
+          involucrados en el cuidado de los pacientes con MAT de todas las provincias
+          de la República Argentina.</p>
+        <br />
+        <h2>¿Cómo hago para acceder al registro?</h2>
+        <br />
+        <p>A la derecha de la pantalla se encuentra el acceso para sumarse al proyecto. Simplemente haz
+          un click en Registrarse y podrás acceder al formulario correspondiente.
+        </p>
+      </div>
+      <div className={styles.right}>
+        <div className={styles.arriba}>
+          <h2>Desde aquí podés ingresar a tus pacientes:</h2>
+          <br />
+          <h3>&quot;Registro de Microangiopatias Trombóticas&quot;</h3>
+          <br />
+          <p>Si ya tenés tu usuario y contraseña hace click en el
+            siguiente enlace</p>
+          <br />
+          <br />
+          <a href="https://iieproyectos.com.ar/redcap/" target="_blank" rel="noreferrer" className={styles.button}>INGRESAR</a>
+        </div>
+        <div className={styles.abajo}>
+          <h2>&iexcl;Sumate al Proyecto!</h2>
+          <br />
+          <p>Haciendo click en el siguiente botón, puede acceder a iniciar el proceso de registro en el
+            sistema de carga del mencionado estudio. Una vez completados los datos nos comunicaremos
+            con usted para hacerle llegar las credenciales de acceso correspondientes.</p>
+          <br />
+          <br />
+          <a href="/" className={styles.button}>REGISTRARSE</a>
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   )
 }

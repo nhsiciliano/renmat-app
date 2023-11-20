@@ -1,0 +1,120 @@
+.container {
+    display: flex;
+    padding: 20px 40px;
+    background-color: rgb(229, 228, 228);
+}
+
+.left {
+    flex: 2;
+    padding: 30px 40px;
+}
+
+.left h1 {
+    font-size: 32px;
+    font-weight: 400;
+    color: brown;
+}
+
+.left h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: rgb(142, 2, 118);
+}
+
+.left p {
+    font-size: 20px;
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 40px;
+}
+
+.arriba {
+    background-color: brown;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.arriba h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+}
+
+.arriba h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: white;
+}
+
+.arriba p {
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+}
+
+.abajo {
+    background-color: gray;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.abajo h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+}
+
+.abajo p {
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+}
+
+.button {
+    background-color: lightgrey;
+    padding: 10px 30px;
+    border-radius: 8px;
+}
+
+@media screen and (max-width: 932px) {
+    .container {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 872px) {
+    .img {
+        width: 640px;
+        height: 260px;
+    }
+}
+
+@media screen and (max-width: 772px) {
+    .img {
+        width: 520px;
+        height: 180px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .left h1 {
+        font-size: 30px;
+    }
+
+    .left p {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .img {
+        display: none;
+    }
+}
