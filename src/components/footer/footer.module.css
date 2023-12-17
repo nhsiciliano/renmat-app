@@ -1,7 +1,7 @@
 .container {
     display: flex;
     flex-direction: column;
-    height: 190px;
+    height: 220px;
     background-color: brown;
     align-items: center;
     justify-content: center;

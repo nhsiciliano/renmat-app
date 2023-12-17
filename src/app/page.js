@@ -31,22 +31,11 @@ export default function Home() {
         <br />
         <h2>¿Cómo hago para acceder al registro?</h2>
         <br />
-        <p>A la derecha de la pantalla se encuentra el acceso para sumarse al proyecto. Simplemente haz
+        <p>Aquí abajo se encuentra el acceso para sumarse al proyecto. Simplemente haz
           un click en Registrarse y podrás acceder al formulario correspondiente.
         </p>
       </div>
       <div className={styles.right}>
-        <div className={styles.arriba}>
-          <h2>Desde aquí podés ingresar a tus pacientes:</h2>
-          <br />
-          <h3>&quot;Registro de Microangiopatias Trombóticas&quot;</h3>
-          <br />
-          <p>Si ya tenés tu usuario y contraseña hace click en el
-            siguiente enlace</p>
-          <br />
-          <br />
-          <a href="https://iieproyectos.com.ar/redcap/" target="_blank" rel="noreferrer" className={styles.button}>INGRESAR</a>
-        </div>
         <div className={styles.abajo}>
           <h2>&iexcl;Sumate al Proyecto!</h2>
           <br />
@@ -55,7 +44,7 @@ export default function Home() {
             con usted para hacerle llegar las credenciales de acceso correspondientes.</p>
           <br />
           <br />
-          <a href="/" className={styles.button}>REGISTRARSE</a>
+          <a href="/registro" className={styles.button}>REGISTRO</a>
         </div>
       </div>
     </div>

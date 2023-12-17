@@ -6,7 +6,7 @@
 
 .left {
     flex: 2;
-    padding: 30px 40px;
+    padding: 50px 90px;
 }
 
 .left h1 {
@@ -17,64 +17,6 @@
 
 .left p {
     font-size: 20px;
-}
-
-.right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 30px 40px;
-}
-
-.arriba {
-    background-color: brown;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.arriba h2 {
-    font-size: 24px;
-    font-weight: 600;
-    color: white;
-}
-
-.arriba h3 {
-    font-size: 22px;
-    font-weight: 600;
-    color: white;
-}
-
-.arriba p {
-    font-size: 18px;
-    font-weight: 400;
-    color: white;
-}
-
-.abajo {
-    background-color: gray;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.abajo h2 {
-    font-size: 24px;
-    font-weight: 600;
-    color: white;
-}
-
-.abajo p {
-    font-size: 18px;
-    font-weight: 400;
-    color: white;
-}
-
-.button {
-    background-color: lightgrey;
-    padding: 10px 30px;
-    border-radius: 8px;
 }
 
 @media screen and (max-width: 932px) {
@@ -90,5 +32,14 @@
 
     .left p {
         font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 20px 10px;
+    }
+    .left {
+        padding: 20px 30px;
     }
 }

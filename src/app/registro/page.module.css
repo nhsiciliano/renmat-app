@@ -1,12 +1,13 @@
 .container {
     display: flex;
+    flex-direction: column;
     padding: 20px 40px;
     background-color: rgb(229, 228, 228);
 }
 
 .left {
     flex: 2;
-    padding: 30px 40px;
+    padding: 30px 90px;
 }
 
 .left h1 {
@@ -30,7 +31,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 30px 40px;
+    padding: 30px 90px;
 }
 
 .arriba {
@@ -114,6 +115,15 @@
 }
 
 @media screen and (max-width: 480px) {
+    .container {
+        padding: 20px 10px;
+    }
+    .left {
+        padding: 20px 30px;
+    }
+    .right {
+        padding: 20px 30px;
+    }
     .img {
         display: none;
     }
