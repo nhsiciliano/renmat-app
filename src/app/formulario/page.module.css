@@ -1,0 +1,81 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    text-align: center;
+    background-color: rgb(229, 228, 228);
+}
+
+.container h1 {
+    font-size: 26px;
+    color: brown;
+}
+
+.container h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: rgb(142, 2, 118);
+}
+
+.container h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.left {
+    flex: 1;
+    padding: 50px 90px;
+    background-color: rgba(188, 188, 188, 0.933);
+    border-radius: 8px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 60%;
+    gap: 20px;
+}
+
+.field {
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid brown;
+}
+
+.button {
+    padding: 20px;
+    background-color: brown;
+    margin: auto;
+    width: 50%;
+    border-radius: 8px;
+    border-width: 1px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    text-align: left;
+    margin-bottom: -14px;
+}
+
+@media screen and (max-width: 768px) {
+    .form {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .form {
+        width: 90%;
+    }
+    .left {
+        padding: 30px 20px;
+    }
+    .field {
+        padding: 10px;
+    }
+}

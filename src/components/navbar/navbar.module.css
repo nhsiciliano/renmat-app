@@ -90,10 +90,12 @@
 @media screen and (max-width: 480px) {
     .container {
         height: 180px;
+        margin: 10px;
+        justify-content: space-around;
     }
     .img {
-        height: 100px;
-        width: 180px;
+        height: 120px;
+        width: 230px;
     }
 }
 

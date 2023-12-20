@@ -62,7 +62,7 @@ const page = () => {
                         con usted para hacerle llegar las credenciales de acceso correspondientes.</p>
                     <br />
                     <br />
-                    <a href="/" className={styles.button}>REGISTRARSE</a>
+                    <a href="/condiciones" className={styles.button}>QUIERO REGISTRARME</a>
                 </div>
             </div>
         </div>

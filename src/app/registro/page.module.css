@@ -125,6 +125,7 @@
         padding: 20px 30px;
     }
     .img {
-        display: none;
+        width: 320px;
+        height: 190px;
     }
 }
