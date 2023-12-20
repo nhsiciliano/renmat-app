@@ -44,7 +44,7 @@ export default function Home() {
             con usted para hacerle llegar las credenciales de acceso correspondientes.</p>
           <br />
           <br />
-          <a href="/registro" className={styles.button}>REGISTRO</a>
+          <a href="/condiciones" className={styles.button}>QUIERO REGISTRARME</a>
         </div>
       </div>
     </div>

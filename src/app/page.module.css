@@ -54,9 +54,18 @@
 }
 
 .button {
-  background-color: lightgrey;
+  background-color: lightgray;
+  font-weight: 600;
+  color: brown;
   padding: 10px 30px;
   border-radius: 8px;
+  border: 2px solid brown;
+}
+
+.button:hover {
+  background-color: brown;
+  color: white;
+  transition: all 0.3s ease;
 }
 
 @media screen and (max-width: 932px) {

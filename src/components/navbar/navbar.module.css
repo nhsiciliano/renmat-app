@@ -11,6 +11,16 @@
     display: flex;
     gap: 45px;
     font-size: 20px;
+    font-weight: 600;
+}
+
+.link:hover {
+    color: brown;
+    transition: all 0.3s ease-in;
+}
+
+.link:active {
+    color: grey;
 }
 
 .burger {

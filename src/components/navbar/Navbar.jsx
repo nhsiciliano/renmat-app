@@ -15,11 +15,11 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className={styles.links}>
-                <Link href="/">Inicio</Link>
-                <Link href="/descmat">Descripción MAT</Link>
-                <Link href="/registro">Registro</Link>
-                <Link href="/herramientas">Herramientas</Link>
-                <Link href="/contacto">Contacto</Link>
+                <Link className={styles.link} href="/">Inicio</Link>
+                <Link className={styles.link} href="/descmat">Descripción MAT</Link>
+                <Link className={styles.link} href="/registro">Registro</Link>
+                <Link className={styles.link} href="/herramientas">Herramientas</Link>
+                <Link className={styles.link} href="/contacto">Contacto</Link>
             </div>
             <div className={styles.burger} onClick={() => setOpen(!open)}>
                 <div className={styles.line}></div>
