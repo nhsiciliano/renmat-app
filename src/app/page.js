@@ -32,7 +32,7 @@ export default function Home() {
         <h2>¿Cómo hago para acceder al registro?</h2>
         <br />
         <p>Aquí abajo se encuentra el acceso para sumarse al proyecto. Simplemente haz
-          un click en Registrarse y podrás acceder al formulario correspondiente.
+          un click en Quiero Registrarme y podrás acceder al formulario correspondiente.
         </p>
       </div>
       <div className={styles.right}>

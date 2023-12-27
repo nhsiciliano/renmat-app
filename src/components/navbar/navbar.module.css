@@ -16,7 +16,7 @@
 
 .link:hover {
     color: brown;
-    transition: all 0.3s ease-in;
+    transition: all 0.2s ease-in;
 }
 
 .link:active {
@@ -43,6 +43,7 @@
     top: 150px;
     left: 0;
     background-color: var(--bg);
+    font-weight: 600;
     height: 180px;
     width: 100%;
     display: flex;

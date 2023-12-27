@@ -1,9 +1,11 @@
 import Footer from '@/components/footer/Footer'
 import Navbar from '@/components/navbar/Navbar'
-import { Inter, EB_Garamond } from 'next/font/google'
+import { Sofia_Sans } from 'next/font/google'
 import './globals.css'
 
-const inter = EB_Garamond({ subsets: ['latin'] })
+const inter = Sofia_Sans({ 
+  subsets: ['latin']
+})
 
 export const metadata = {
   title: 'RENMAT | Registro Nacional Microangiopatias Tromboticas',

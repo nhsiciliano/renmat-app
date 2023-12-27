@@ -4,8 +4,12 @@ import React from 'react'
 import styles from './page.module.css'
 import { Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
+import emailjs from '@emailjs/browser';
+import { useRouter } from 'next/navigation'
+import Swal from 'sweetalert2'
 
-const page = () => {
+const Page = () => {
+    const router = useRouter();
     const validationSchema = yup.object().shape({
         nombre: yup.string().required('El nombre es requerido'),
         apellido: yup.string().required('El apellido es requerido'),
@@ -44,9 +48,28 @@ const page = () => {
                         instituto: ''
                     }}
                     validationSchema={validationSchema}
-                    onSubmit={async (values) => {
-                        await new Promise((r) => setTimeout(r, 500));
-                        alert(JSON.stringify(values, null, 2));
+                    onSubmit={(values, { setSubmitting, resetForm }) => {
+                        try {
+                            emailjs
+                            .send(process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID, process.env.NEXT_PUBLIC_EMAIL_TEMPLE_ID, values, process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY)
+                            .then((result) => {
+                                console.log(result.text);
+                                Swal.fire({
+                                    title: 'Registro completo',
+                                    text: 'Tu registro fue exitoso. Nos pondremos en contacto contigo via email para facilitarte las credenciales de acceso a redcap.',
+                                    icon: 'success',
+                                    position: 'top',
+                                    confirmButtonColor: '#A50104',
+                                });
+                                setSubmitting(false);
+                                resetForm();
+                            }, (error) => {
+                                console.log(error.text);
+                            })
+                        } catch (error) {
+                            console.log(error, "Error de registro");
+                            alert("Hubo un problema con el registro, por favor intente de nuevo más tarde");
+                        }
                     }}
                 >
                     {({ errors, touched }) => (
@@ -68,7 +91,7 @@ const page = () => {
                             {errors.telefono && touched.telefono ? (
                                 <div className={styles.error}>{errors.telefono}</div>
                             ) : null}
-                            <Field className={styles.field} id='telefono' name='telefono' placeholder='Teléfono de contacto' />
+                            <Field className={styles.field} id='telefono' name='telefono' placeholder='Teléfono de contacto (solo números)' />
                             {errors.profesion && touched.profesion ? (
                                 <div className={styles.error}>{errors.profesion}</div>
                             ) : null}
@@ -94,4 +117,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page
