@@ -53,6 +53,7 @@
 @media screen and (max-width: 482px) {
     .container {
         text-align: center;
+        padding: 30px 20px;
     }
     .container h1 {
         font-size: 18px;

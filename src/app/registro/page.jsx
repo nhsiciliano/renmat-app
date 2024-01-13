@@ -43,8 +43,8 @@ const page = () => {
                 <hr />
                 <br />
                 <p>REDCap es un programa de uso flexible y personalizable, con acceso seguro vía la creación
-                    de su cuenta de usuario y contraseña personal. REDCap es una herramienta segura para el manejo
-                    de datos sensibles que proponemos recopilar en nuestro registro. Se mantendrá la
+                    de una cuenta de usuario y contraseña personal por parte del profesional de salud. REDCap es una herramienta segura para el manejo
+                    de datos sensibles que se propone recopilar en el registro de pacientes. Se mantendrá la
                     confidencialidad de toda la información de este estudio según pautas de la legislación nacional e
                     internacional vigente.</p>
                 <br />

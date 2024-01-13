@@ -1,7 +1,7 @@
 .container {
     display: flex;
     padding: 20px 40px;
-    background-color: rgb(229, 228, 228);
+    background-color: #C9D7FB;
 }
 
 .left {
@@ -19,19 +19,35 @@
     font-size: 20px;
 }
 
+.imgPath {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
 @media screen and (max-width: 932px) {
     .container {
         flex-direction: column;
     }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 768px) {
     .left h1 {
         font-size: 30px;
     }
 
     .left p {
         font-size: 18px;
+    }
+
+    .imgPath {
+        flex-direction: column;
+    }
+
+    .image {
+        width: 500px;
+        height: 420px;
     }
 }
 
@@ -41,5 +57,14 @@
     }
     .left {
         padding: 20px 30px;
+    }
+
+    .imgPath {
+        flex-direction: column;
+    }
+
+    .image {
+        width: 310px;
+        height: 280px;
     }
 }

@@ -14,7 +14,7 @@ const Page = () => {
         nombre: yup.string().required('El nombre es requerido'),
         apellido: yup.string().required('El apellido es requerido'),
         email: yup.string().email('Ingresa un correo válido').required('El correo es requerido'),
-        telefono: yup.number().required('El teléfono es requerido'),
+        telefono: yup.number().typeError('Por favor ingrese un número válido').required('El teléfono es requerido'),
         profesion: yup.string().required('La profesión es requerida'),
         provincia: yup.string().required('La provincia es requerida'),
         ciudad: yup.string().required('La ciudad es requerida'),
@@ -33,7 +33,6 @@ const Page = () => {
                 un email a registroargmat@gmail.com.
             </h3>
             <h3>Todos los campos son requeridos para el registro.</h3>
-            <br />
             <br />
             <div className={styles.left}>
                 <Formik

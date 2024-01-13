@@ -6,22 +6,23 @@ export default function Home() {
       <div className={styles.left}>
         <h1>Bienvenidos</h1>
         <br />
-        <p>Le damos la bienvenida al sitio de Registro de Microangiopatías trombóticas en Argentina.
+        <p>Le damos la bienvenida al sitio de Registro Argentino de Microangiopatías trombóticas.
           <br />
           <br />
-          Se ha creado este espacio abierto a la comunidad de profesionales que disgnostican, estudian
-          , tratan y realizan el seguimiento de pacientes con esta enfermedad.
+          Se ha creado este espacio abierto a la comunidad de profesionales que diagnostican, estudian
+          , tratan y realizan el seguimiento de pacientes padeciendo estas enfermedades.
           <br />
           <br />
         </p>
         <h2>Descripción del sitio</h2>
         <br />
         <p>En este espacio usted encontrará la posibilidad de participar en el registro con la
-          inclusión de sus pacientes en el sistema RedCap. Desde aquí podrá administrar
-          las historias clínicas de sus pacientes, su evolución, los eventos e intercurrencias
-          así como los nuevos tratamientos que hayan recibido, realizar estadísticas,
-          participar activamente de las investigaciones y publicaciones que desde el registro
-          se generen.</p>
+          inclusión de sus pacientes en el sistema RedCap. Desde aquí podrá recopilar información 
+          detallada sobre parámetros de laboratorio y manifestaciones clínicas de sus pacientes,
+          su evolución, los eventos e intercurrencias
+          así como los nuevos tratamientos administrados, realizar estadísticas,
+          participar activamente de las investigaciones y publicaciones que se generen
+          desde el registro.</p>
         <br />
         <h2>¿A quién está dirigido el registro?</h2>
         <br />
