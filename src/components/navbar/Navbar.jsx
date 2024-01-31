@@ -21,6 +21,9 @@ const Navbar = () => {
                 <Link className={styles.link} href="/herramientas">Herramientas</Link>
                 <Link className={styles.link} href="/contacto">Contacto</Link>
             </div>
+            <div className={styles.linkReg}>
+                <Link className={styles.link} href="/condiciones">Quiero Registrarme</Link>
+            </div>
             <div className={styles.burger} onClick={() => setOpen(!open)}>
                 <div className={styles.line}></div>
                 <div className={styles.line}></div>
@@ -33,6 +36,7 @@ const Navbar = () => {
                     <Link href="/registro">Registro</Link>
                     <Link href="/herramientas">Herramientas</Link>
                     <Link href="/contacto">Contacto</Link>
+                    <Link className={styles.linkRes} href="/condiciones">Quiero Registrarme</Link>
                 </div>
             )}
         </div>

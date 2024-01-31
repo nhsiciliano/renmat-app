@@ -8,7 +8,7 @@ const inter = Sofia_Sans({
 })
 
 export const metadata = {
-  title: 'RENMAT | Registro Nacional Microangiopatias Tromboticas',
+  title: 'RegArMAT | Registro Argentino de Microangiopatias Tromboticas',
   description: 'Sitio web abierto a la comunidad medica y cientifica para el registro de pacientes en la República Argentina con Microangiopatias Tromboticas',
 }
 
