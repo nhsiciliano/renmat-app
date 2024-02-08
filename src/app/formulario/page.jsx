@@ -75,38 +75,38 @@ const Page = () => {
                         <Form
                             className={styles.form}
                         >
+                            <Field className={styles.field} id='nombre' name='nombre' placeholder='Nombre' />
                             {errors.nombre && touched.nombre ? (
                                 <div className={styles.error}>{errors.nombre}</div>
                             ) : null}
-                            <Field className={styles.field} id='nombre' name='nombre' placeholder='Nombre' />
+                            <Field className={styles.field} id='apellido' name='apellido' placeholder='Apellido' />
                             {errors.apellido && touched.apellido ? (
                                 <div className={styles.error}>{errors.apellido}</div>
                             ) : null}
-                            <Field className={styles.field} id='apellido' name='apellido' placeholder='Apellido' />
+                            <Field className={styles.field} id='email' name='email' placeholder='Email' type='email' />
                             {errors.email && touched.email ? (
                                 <div className={styles.error}>{errors.email}</div>
                             ) : null}
-                            <Field className={styles.field} id='email' name='email' placeholder='Email' type='email' />
+                            <Field className={styles.field} id='telefono' name='telefono' placeholder='Teléfono de contacto (solo números)' />
                             {errors.telefono && touched.telefono ? (
                                 <div className={styles.error}>{errors.telefono}</div>
                             ) : null}
-                            <Field className={styles.field} id='telefono' name='telefono' placeholder='Teléfono de contacto (solo números)' />
+                            <Field className={styles.field} id='profesion' name='profesion' placeholder='Profesion' />
                             {errors.profesion && touched.profesion ? (
                                 <div className={styles.error}>{errors.profesion}</div>
                             ) : null}
-                            <Field className={styles.field} id='profesion' name='profesion' placeholder='Profesion' />
+                            <Field className={styles.field} id='provincia' name='provincia' placeholder='Provincia' />
                             {errors.provincia && touched.provincia ? (
                                 <div className={styles.error}>{errors.provincia}</div>
                             ) : null}
-                            <Field className={styles.field} id='provincia' name='provincia' placeholder='Provincia' />
+                            <Field className={styles.field} id='ciudad' name='ciudad' placeholder='Ciudad' />
                             {errors.ciudad && touched.ciudad ? (
                                 <div className={styles.error}>{errors.ciudad}</div>
                             ) : null}
-                            <Field className={styles.field} id='ciudad' name='ciudad' placeholder='Ciudad' />
+                            <Field className={styles.field} id='instituto' name='instituto' placeholder='Instituto donde trabaja' />
                             {errors.instituto && touched.instituto ? (
                                 <div className={styles.error}>{errors.instituto}</div>
                             ) : null}
-                            <Field className={styles.field} id='instituto' name='instituto' placeholder='Instituto donde trabaja' />
                             <button className={styles.button} type='submit'>Registrarse</button>
                         </Form>
                     )}

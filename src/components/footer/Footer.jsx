@@ -9,7 +9,7 @@ const Footer = () => {
                 email de contacto:</h1>
             <h1><b>registroargmat@gmail.com</b></h1>
             <br />
-            <h2>RENMAT | Registro Nacional Microangiopatías Trombóticas</h2>
+            <h2>RegArMAT | Registro Argentino de Microangiopatías Trombóticas</h2>
             <br />
             <h3>Copyright 2024 &copy; Todos los derechos reservados</h3>
         </div>
