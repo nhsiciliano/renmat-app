@@ -17,14 +17,38 @@ const page = () => {
                 </p>
                 <br />
                 <br />
+            </div>
+            <div className={styles.contvideo}>
+                <div className={styles.video}>
                 <YouTubeVideo
                     videoId="V8Ibbkru8EI"
                 />
-                <br />
-                <br />
+                </div>
+                <div className={styles.video}>
                 <YouTubeVideo
-                    videoId="_BA9XTPIkVM"
+                    videoId="SdBq6CVcYtA"
                 />
+                </div>
+                <div className={styles.video}>
+                <YouTubeVideo
+                    videoId="Jak9ybw8xnE"
+                />
+                </div>
+                <div className={styles.video}>
+                <YouTubeVideo
+                    videoId="vQee-VaSj-c"
+                />
+                </div>
+                <div className={styles.video}>
+                <YouTubeVideo
+                    videoId="cr0_4C3fcLw"
+                />
+                </div>
+                <div className={styles.video}>
+                <YouTubeVideo
+                    videoId="nTC3O_1g-0A"
+                />
+                </div>
             </div>
         </div>
     )

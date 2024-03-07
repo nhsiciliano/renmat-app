@@ -11,7 +11,7 @@ const page = () => {
                 <hr />
                 <br />
                 <div className={styles.imgPath}>
-                    <Image src="/tmadiseases.jpeg" className={styles.image} alt='TMA enfermedades' width={630} height={440} />
+                    <Image src="/resmat.jpg" className={styles.image} alt='TMA enfermedades' width={630} height={480} />
                     <p>
                         Las Microangiopatías Trombóticas (MAT) representan un grupo de enfermedades caracterizadas por rasgos clínicos y
                         anátomo-patológicos similares. Los síntomas clínicos incluyen anemia hemolítica microangiopática

@@ -12,9 +12,9 @@ const page = () => {
                     podés comunicarte con nosotros mediante los siguientes medios:
                 </p>
                 <br />
-                <p>- Email: <b>registroartmat@gmail.com</b></p>
+                <p>- Email: <b>registroargmat@gmail.com</b></p>
                 <br />
-                <p>- Teléfonos: <b>45674-1324 / 11-3467-9043</b></p>
+                <p>- Teléfonos: <b>4809-1000 / 4809-1022</b></p>
                 <br />
                 <p>Recordá que una vez que se completa el registro mediante nuestra plataforma
                     nos pondremos en contacto mediante email para enviar los datos de acceso al
