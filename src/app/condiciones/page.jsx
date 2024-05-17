@@ -19,8 +19,8 @@ const Page = () => {
     const handlePrev = () => !isFirstStep && setActiveStep((cur) => cur - 1);
 
     const StepElements = [
-        <Conditions />,
-        <Form />,
+        <Conditions key='first' />,
+        <Form key='second' />,
     ]
 
 
