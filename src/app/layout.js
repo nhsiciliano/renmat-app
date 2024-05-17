@@ -1,9 +1,12 @@
-import Footer from '@/components/footer/Footer'
-import Navbar from '@/components/navbar/Navbar'
+import Footer from '@/components/Footer'
+import Navbar from '@/components/Navbar'
 import { Sofia_Sans } from 'next/font/google'
 import './globals.css'
 
-const inter = Sofia_Sans({ 
+import { ThemeProvider } from '../components/material-tailwind';
+
+
+const inter = Sofia_Sans({
   subsets: ['latin']
 })
 
@@ -15,15 +18,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <ThemeProvider>
         <body className={inter.className}>
-          <div className='container'>
-            <div>
-              <Navbar/>
-              {children}
-              <Footer/>
-            </div>
+          <div>
+            <Navbar />
+            {children}
+            <Footer />
           </div>
         </body>
+      </ThemeProvider>
     </html>
   )
 }

@@ -1,54 +1,53 @@
-import Navsec from '@/components/navsec/Navsec'
 import YouTubeVideo from '@/components/youtubevideo/YouTubeVideo'
 import React from 'react'
-import styles from './page.module.css'
 
 const page = () => {
+
+    const idVideo = [
+        {
+            id: 1,
+            hush: 'V8Ibbkru8EI',
+        },
+        {
+            id: 2,
+            hush: 'SdBq6CVcYtA',
+        },
+        {
+            id: 3,
+            hush: 'Jak9ybw8xnE',
+        },
+        {
+            id: 4,
+            hush: 'vQee-VaSj-c',
+        },
+        {
+            id: 5,
+            hush: 'cr0_4C3fcLw',
+        },
+        {
+            id: 6,
+            hush: 'nTC3O_1g-0A',
+        },
+    ]
+
     return (
-        <div className={styles.container}>
-            <div className={styles.left}>
-                <Navsec />
-                <hr />
-                <br />
-                <h1>Videos sobre MAT</h1>
-                <br />
-                <p>Aquí encontrarás videos de nuestro canal de YouTube
-                    con mucha información sobre MAT y temas relacionados.
-                </p>
-                <br />
-                <br />
-            </div>
-            <div className={styles.contvideo}>
-                <div className={styles.video}>
-                <YouTubeVideo
-                    videoId="V8Ibbkru8EI"
-                />
-                </div>
-                <div className={styles.video}>
-                <YouTubeVideo
-                    videoId="SdBq6CVcYtA"
-                />
-                </div>
-                <div className={styles.video}>
-                <YouTubeVideo
-                    videoId="Jak9ybw8xnE"
-                />
-                </div>
-                <div className={styles.video}>
-                <YouTubeVideo
-                    videoId="vQee-VaSj-c"
-                />
-                </div>
-                <div className={styles.video}>
-                <YouTubeVideo
-                    videoId="cr0_4C3fcLw"
-                />
-                </div>
-                <div className={styles.video}>
-                <YouTubeVideo
-                    videoId="nTC3O_1g-0A"
-                />
-                </div>
+        <div className='bg-blue-50 px-10 py-5 lg:px-20 lg:py-10'>
+            <h2 className='text-xl lg:text-2xl text-red-800 mx-5 my-3'>Videos sobre MAT</h2>
+            <hr className='border-red-800 mx-5' />
+            <br />
+            <p className='p-6 text-xl'>Aquí encontrarás videos de nuestro canal de YouTube con mucha información sobre MAT
+                y temas relacionados.
+            </p>
+            <div className='flex flex-wrap gap-5 p-3 mt-5'>
+                {
+                    idVideo.map((item, index) => (
+                        <div className='basis-full lg:basis-5/12 m-auto' key={index}>
+                        <YouTubeVideo
+                            videoId={item.hush}
+                        />
+                    </div>
+                    ))
+                }
             </div>
         </div>
     )

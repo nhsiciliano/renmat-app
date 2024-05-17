@@ -1,13 +1,12 @@
 import React from 'react'
-import styles from './page.module.css'
 
 const page = () => {
     return (
-        <div className={styles.container}>
-            <div className={styles.left}>
-                <h1>Contacto</h1>
-                <hr />
-                <br />
+        <div className='bg-blue-50 px-10 py-5 lg:px-20 lg:py-10'>
+            <h2 className='text-xl lg:text-2xl text-red-800 mx-5 my-3'>Contacto</h2>
+            <hr className='border-red-800 mx-5' />
+            <br />
+            <div className='p-6 text-xl'>
                 <p>Ante cualquier duda con respecto al registro o al acceso al sistema REDCap
                     podés comunicarte con nosotros mediante los siguientes medios:
                 </p>
@@ -20,18 +19,6 @@ const page = () => {
                     nos pondremos en contacto mediante email para enviar los datos de acceso al
                     sistema REDCap.
                 </p>
-            </div>
-            <div className={styles.right}>
-                <div className={styles.arriba}>
-                    <h2>Desde aquí podés ingresar a tus pacientes:</h2>
-                    <br />
-                    <h3>&quot;Registro de Microangiopatias Trombóticas&quot;</h3>
-                    <p>Si ya tenés tu usuario y contraseña hace click en el
-                        siguiente enlace</p>
-                    <br />
-                    <br />
-                    <a href="https://iieproyectos.com.ar/redcap/" target="_blank" rel="noreferrer" className={styles.button}>INGRESAR</a>
-                </div>
             </div>
         </div>
     )
