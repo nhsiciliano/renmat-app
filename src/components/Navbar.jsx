@@ -106,7 +106,7 @@ const Navigate = () => {
     );
 
     return (
-        <div className="sticky top-0 z-10 m-3 max-h-[768px] overflow-scroll px-4 py-2 lg:px-8 lg:py-4">
+        <div className="sticky top-0 z-10 m-3 max-h-[768px] overflow-hidden px-4 py-2 lg:px-8 lg:py-4">
             <Navbar className="h-max max-w-full rounded-lg backdrop-filter backdrop-blur-lg bg-opacity-30">
                 <div className="flex items-center justify-between text-blue-gray-900">
                     <Link href='/'>
