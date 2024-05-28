@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import { Formik, Form, Field, useFormik } from 'formik'
+import { useFormik } from 'formik'
 import * as yup from 'yup'
 import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2'
@@ -16,7 +16,7 @@ export default function FormSec() {
         telefono: yup.number().typeError('Por favor ingrese un número válido').required('El teléfono es requerido'),
         profesion: yup.string().required('La profesión es requerida'),
         provincia: yup.string().required('La provincia es requerida'),
-        nombre: yup.string().required('La nombre es requerida'),
+        ciudad: yup.string().required('La ciudad es requerida'),
         instituto: yup.string().required('La institución donde trabaja es requerida'),
     });
 
