@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Renmat-App
 
-## Getting Started
+Este proyecto es una aplicación web científica construida con [Next.js](https://nextjs.org/), diseñada para realizar cálculos y visualizaciones de datos.
 
-First, run the development server:
+## ➤ Descripción
+
+Renmat-app proporciona una interfaz intuitiva para que los usuarios puedan ingresar datos, procesarlos a través de algoritmos específicos y visualizar los resultados de manera gráfica. Está orientada a facilitar análisis en el ámbito científico y de investigación.
+
+## 📂 Estructura del Proyecto
+
+El proyecto utiliza la estructura de directorios del App Router de Next.js para una organización moderna y escalable.
+
+renmat-app/
+├── public/ # Archivos estáticos (imágenes, fuentes, etc.)
+├── src/
+│ ├── app/ # Páginas y rutas de la aplicación
+│ │ ├── favicon.ico
+│ │ ├── globals.css
+│ │ ├── layout.js # Plantilla principal de la aplicación
+│ │ └── page.js # Página de inicio
+│ └── components/ # (Sugerido) Componentes reutilizables de React
+├── .eslintrc.json # Configuración de ESLint para el linting de código
+├── .gitignore # Archivos y carpetas ignorados por Git
+├── next.config.js # Archivo de configuración de Next.js
+├── package.json # Dependencias y scripts del proyecto
+├── postcss.config.js # Configuración de PostCSS
+└── tailwind.config.js # Configuración de Tailwind CSS
+
+
+## ✨ Tecnologías Utilizadas
+
+-   **Framework:** [Next.js](https://nextjs.org/)
+-   **Lenguaje:** [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
+-   **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
+-   **Linting:** [ESLint](https://eslint.org/)
+
+## 🚀 Cómo Empezar
+
+Sigue estos pasos para configurar y ejecutar el proyecto en tu entorno local.
+
+### Prerrequisitos
+
+-   [Node.js](https://nodejs.org/es/) (versión 18.x o superior)
+-   [npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/) o [pnpm](https://pnpm.io/)
+
+### Instalación
+
+1.  Clona el repositorio en tu máquina local:
+    ```sh
+    git clone https://github.com/nhsiciliano/renmat-app.git
+    ```
+2.  Navega al directorio del proyecto:
+    ```sh
+    cd renmat-app
+    ```
+3.  Instala las dependencias del proyecto:
+    ```sh
+    npm install
+    # o
+    yarn install
+    # o
+    pnpm install
+    ```
+
+### Ejecución
+
+Una vez instaladas las dependencias, inicia el servidor de desarrollo:
 
 ```bash
 npm run dev
-# or
+# o
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# o
+pnpm dev```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación en funcionamiento.
