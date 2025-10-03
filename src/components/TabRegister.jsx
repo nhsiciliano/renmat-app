@@ -28,7 +28,7 @@ export default function TabRegister() {
             desc: `En caso que ya estés registrado y tengas tu usuario y contraseña de acceso a
             RedCAP haz click en el botón aquí abajo.`,
             button: `Acceso RedCAP`,
-            link: `https://iieproyectos.com.ar/redcap/`,
+            link: `https://redcap.anm.edu.ar/redcap/`,
         },
     ];
     return (
