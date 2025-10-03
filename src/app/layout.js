@@ -17,7 +17,22 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="es">
+      <head>
+        <title>RegArMAT | Registro Argentino de Microangiopatias Tromboticas</title>
+        <meta name="description" content="Sitio web abierto a la comunidad médica y científica para el registro de pacientes en la República Argentina con Microangiopatías Trombóticas" />
+        <meta name="keywords" content="Microangiopatías Trombóticas, MAT, Argentina, registro, medicina, ciencia, PTT, SUHa, REDCap" />
+        <link rel="canonical" href="https://www.regarmat.com.ar/" />
+        <meta property="og:title" content="RegArMAT | Registro Argentino de Microangiopatias Tromboticas" />
+        <meta property="og:description" content="Sitio web abierto a la comunidad médica y científica para el registro de pacientes en la República Argentina con Microangiopatías Trombóticas" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.regarmat.com.ar/" />
+        <meta property="og:image" content="https://www.regarmat.com.ar/public/resmat.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="RegArMAT | Registro Argentino de Microangiopatias Tromboticas" />
+        <meta name="twitter:description" content="Sitio web abierto a la comunidad médica y científica para el registro de pacientes en la República Argentina con Microangiopatías Trombóticas" />
+        <meta name="twitter:image" content="https://www.regarmat.com.ar/public/resmat.jpg" />
+      </head>
       <ThemeProvider>
         <body className={inter.className}>
           <div>
