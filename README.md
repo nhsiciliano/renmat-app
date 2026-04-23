@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# RegArMAT — Registro Argentino de Microangiopatías Trombóticas
 
-## Getting Started
+Web app científica para el registro de pacientes con MAT (Microangiopatías Trombóticas) en la República Argentina.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router, Turbopack)
+- **React 19**
+- **TypeScript 5**
+- **Tailwind CSS v4** (CSS-first config)
+- **shadcn/ui** + Radix UI primitives
+- **Formik + Yup** para formularios y validación
+- **EmailJS** para envío del formulario de registro
+- **SweetAlert2** para alerts
+
+## Requisitos
+
+- Node.js **>= 20.9** (Next 16 lo exige)
+- npm 10 o superior
+
+## Setup
 
 ```bash
+npm install
+cp .env.local.example .env.local   # ver "Variables de entorno" abajo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+| Script              | Descripción                                  |
+| ------------------- | -------------------------------------------- |
+| `npm run dev`       | Servidor de desarrollo con Turbopack         |
+| `npm run build`     | Build de producción                          |
+| `npm run start`     | Servidor de producción                       |
+| `npm run lint`      | ESLint (flat config, `eslint.config.mjs`)    |
+| `npm run typecheck` | `tsc --noEmit`                               |
 
-## Learn More
+## Variables de entorno
 
-To learn more about Next.js, take a look at the following resources:
+Las usa el formulario de registro (EmailJS, lado cliente):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+NEXT_PUBLIC_EMAIL_SERVICE_ID=...
+NEXT_PUBLIC_EMAIL_TEMPLE_ID=...
+NEXT_PUBLIC_EMAIL_PUBLIC_KEY=...
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+> Nota: `NEXT_PUBLIC_EMAIL_TEMPLE_ID` (typo histórico por "TEMPLATE") se mantiene tal cual para no romper la integración existente.
 
-## Deploy on Vercel
+## Estructura
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+├── app/                    # App Router (páginas y layouts)
+│   ├── bibliografia/
+│   ├── condiciones/
+│   ├── contacto/
+│   ├── descripcion-mat/
+│   ├── formulario/
+│   ├── registro/
+│   ├── score-plasmic/
+│   ├── videos/
+│   ├── globals.css         # Tailwind v4 + tokens de tema
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   ├── ui/                 # shadcn/ui primitives (button, card, accordion, tabs, sheet, navigation-menu, stepper, input)
+│   ├── navsec/
+│   ├── youtubevideo/
+│   ├── AccordionInfo.tsx
+│   ├── Conditions.tsx
+│   ├── Footer.tsx
+│   ├── Form.tsx
+│   ├── Hero.tsx
+│   ├── Navbar.tsx
+│   └── TabRegister.tsx
+└── lib/
+    └── utils.ts            # cn() helper para shadcn
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Deploy
+
+Compatible con cualquier proveedor que soporte Node 20+ (Vercel, Netlify, etc.).
