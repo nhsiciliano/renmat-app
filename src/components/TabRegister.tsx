@@ -1,15 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowRightIcon, ExternalLinkIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const data = [
   {
-    label: "Quiero Registrarme",
+    label: "Quiero registrarme",
     value: "registro",
-    desc: `Para poder registrarte debes hacer click en el botón aquí abajo y accederás a las condiciones de registro y el formulario correspondiente.`,
+    desc: "Para poder registrarte hacé click en el botón debajo y accedé a las condiciones de registro y al formulario correspondiente.",
     button: "Quiero Registrarme",
     link: "/condiciones",
     external: false,
@@ -17,8 +18,8 @@ const data = [
   {
     label: "Ya estoy registrado",
     value: "registrado",
-    desc: `En caso que ya estés registrado y tengas tu usuario y contraseña de acceso a RedCAP haz click en el botón aquí abajo.`,
-    button: "Acceso RedCAP",
+    desc: "Si ya estás registrado y tenés usuario y contraseña de acceso a REDCap, ingresá directamente desde el botón.",
+    button: "Acceso REDCap",
     link: "https://redcap.anm.edu.ar/redcap/",
     external: true,
   },
@@ -26,51 +27,69 @@ const data = [
 
 export default function TabRegister() {
   return (
-    <div className="p-3">
-      <Tabs
-        defaultValue="registro"
-        className="p-5 rounded-lg border-2 border-solid border-gray-400"
-      >
-        <TabsList className="w-full bg-transparent gap-2">
-          {data.map(({ label, value }) => (
-            <TabsTrigger
+    <section className="bg-slate-50/60 py-20">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 max-w-2xl">
+          <p className="sci text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+            Ingreso
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+            Acceso al registro
+          </h2>
+          <p className="mt-3 text-base leading-relaxed text-slate-600">
+            Elegí la opción que corresponda a tu situación.
+          </p>
+        </div>
+
+        <Tabs defaultValue="registro">
+          <TabsList className="grid h-11 w-full max-w-md grid-cols-2 bg-white p-1">
+            {data.map(({ label, value }) => (
+              <TabsTrigger
+                key={value}
+                value={value}
+                className="rounded-md text-sm font-medium text-slate-600 data-[state=active]:bg-slate-900 data-[state=active]:text-white"
+              >
+                {label}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+
+          {data.map(({ value, desc, button, link, external }) => (
+            <TabsContent
               key={value}
               value={value}
-              className="flex-1 p-2 text-lg font-bold lg:text-xl"
+              className="mt-8 rounded-2xl border border-slate-200 bg-white p-8 sm:p-10"
             >
-              {label}
-            </TabsTrigger>
+              <p className="max-w-2xl text-lg leading-relaxed text-slate-700">
+                {desc}
+              </p>
+              <div className="mt-8">
+                {external ? (
+                  <a href={link} target="_blank" rel="noopener noreferrer">
+                    <Button
+                      size="lg"
+                      className="h-11 rounded-full bg-slate-900 px-6 text-base font-medium text-white hover:bg-slate-800"
+                    >
+                      {button}
+                      <ExternalLinkIcon className="ml-1.5 size-4" />
+                    </Button>
+                  </a>
+                ) : (
+                  <Link href={link}>
+                    <Button
+                      size="lg"
+                      className="h-11 rounded-full bg-brand px-6 text-base font-medium text-white hover:bg-brand/90"
+                    >
+                      {button}
+                      <ArrowRightIcon className="ml-1.5 size-4" />
+                    </Button>
+                  </Link>
+                )}
+              </div>
+            </TabsContent>
           ))}
-        </TabsList>
-        {data.map(({ value, desc, button, link, external }) => (
-          <TabsContent key={value} value={value} className="p-5 lg:p-8">
-            <div className="text-center text-lg lg:text-xl text-red-800 font-semibold">
-              {desc}
-            </div>
-            <div className="mt-[30px] flex items-center justify-center">
-              {external ? (
-                <a href={link} target="_blank" rel="noopener noreferrer">
-                  <Button
-                    size="lg"
-                    className="bg-gradient-to-tr from-indigo-600 to-indigo-400 text-white hover:from-indigo-700 hover:to-indigo-500"
-                  >
-                    {button}
-                  </Button>
-                </a>
-              ) : (
-                <Link href={link}>
-                  <Button
-                    size="lg"
-                    className="bg-gradient-to-tr from-indigo-600 to-indigo-400 text-white hover:from-indigo-700 hover:to-indigo-500"
-                  >
-                    {button}
-                  </Button>
-                </Link>
-              )}
-            </div>
-          </TabsContent>
-        ))}
-      </Tabs>
-    </div>
+        </Tabs>
+      </div>
+    </section>
   );
 }

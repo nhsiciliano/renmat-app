@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ArrowRightIcon } from "lucide-react";
 import {
   IdentificationIcon,
   UserIcon,
@@ -24,34 +25,52 @@ export default function CondicionesPage() {
   const stepElements = [<Conditions key="first" />, <Form key="second" />];
 
   return (
-    <div className="bg-blue-50 px-10 py-5 lg:px-20 lg:py-10">
-      <div className="py-4 px-4">
-        <div className="px-4 mb-[120px] md:px-20 lg:px-60">
-          <Stepper activeStep={activeStep} onStepChange={setActiveStep}>
-            <Step label="Paso 1" description="Condiciones de Registro">
-              <UserIcon className="h-5 w-5" />
-            </Step>
-            <Step label="Paso 2" description="Formulario de Registro">
-              <IdentificationIcon className="h-5 w-5" />
-            </Step>
-          </Stepper>
+    <div className="bg-white">
+      <header className="border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+          <p className="sci text-xs font-semibold uppercase tracking-[0.18em] text-brand">
+            Onboarding
+          </p>
+          <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+            Registrate como profesional
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-slate-600">
+            En dos pasos completás las condiciones de uso y los datos de
+            contacto para recibir tus credenciales de REDCap.
+          </p>
         </div>
-        <div>{stepElements[activeStep]}</div>
-        <div className="mt-3 flex justify-center">
-          {!isLastStep && (
+      </header>
+
+      <div className="mx-auto max-w-4xl px-4 pt-12 sm:px-6 lg:px-8">
+        <Stepper activeStep={activeStep} onStepChange={setActiveStep}>
+          <Step label="Paso 1" description="Condiciones">
+            <UserIcon className="h-4 w-4" />
+          </Step>
+          <Step label="Paso 2" description="Formulario">
+            <IdentificationIcon className="h-4 w-4" />
+          </Step>
+        </Stepper>
+      </div>
+
+      <div>{stepElements[activeStep]}</div>
+
+      <div className="mx-auto max-w-4xl px-4 pb-16 sm:px-6 lg:px-8">
+        {!isLastStep && (
+          <div className="flex justify-center border-t border-slate-200 pt-8">
             <Button
               type="button"
               onClick={handleNext}
               disabled={isLastStep}
               size="lg"
-              className="bg-red-800 hover:bg-red-900 text-white text-sm lg:text-lg"
+              className="h-11 rounded-full bg-brand px-6 text-base font-medium text-white hover:bg-brand/90"
             >
               {isFirstStep
-                ? "ACEPTO LAS CONDICIONES DE REGISTRO"
-                : "SIGUIENTE"}
+                ? "Acepto las condiciones"
+                : "Siguiente"}
+              <ArrowRightIcon className="ml-1.5 size-4" />
             </Button>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );

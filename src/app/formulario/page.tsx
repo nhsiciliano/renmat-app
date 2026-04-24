@@ -2,11 +2,8 @@
 
 import emailjs from "@emailjs/browser";
 import { Field, Form, Formik } from "formik";
-import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 import * as yup from "yup";
-
-import styles from "./page.module.css";
 
 type FormValues = {
   nombre: string;
@@ -47,148 +44,125 @@ const validationSchema = yup.object().shape({
   instituto: yup.string().required("La institución donde trabaja es requerida"),
 });
 
-export default function FormularioPage() {
-  // `router` is reserved for future navigation after submission; keep the
-  // hook wired so client routing stays available on this page.
-  useRouter();
+const fieldClass =
+  "h-11 w-full border-0 border-b border-slate-300 bg-transparent px-0 text-base text-slate-900 transition-colors outline-none focus:border-brand";
 
+export default function FormularioPage() {
   return (
-    <div className={styles.container}>
-      <br />
-      <h1>- PASO 2 DE 2 -</h1>
-      <br />
-      <h2>Formulario de Registro</h2>
-      <br />
-      <h3>
-        Por favor complete el formulario correspondiente con todos los datos
-        solicitados y haga click en registrarse.
-      </h3>
-      <h3>
-        Si tiene alguna duda con respecto a los datos de registro puede
-        enviarnos un email a registroargmat@gmail.com.
-      </h3>
-      <h3>Todos los campos son requeridos para el registro.</h3>
-      <br />
-      <div className={styles.left}>
-        <Formik<FormValues>
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={(values, { setSubmitting, resetForm }) => {
-            try {
-              emailjs
-                .send(
-                  process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID ?? "",
-                  process.env.NEXT_PUBLIC_EMAIL_TEMPLE_ID ?? "",
-                  values,
-                  process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY ?? ""
-                )
-                .then(
-                  (result) => {
-                    console.log(result.text);
-                    Swal.fire({
-                      title: "Registro completo",
-                      text: "Tu registro fue exitoso. Nos pondremos en contacto contigo via email para facilitarte las credenciales de acceso a redcap.",
-                      icon: "success",
-                      position: "top",
-                      confirmButtonColor: "#A50104",
-                    });
-                    setSubmitting(false);
-                    resetForm();
-                  },
-                  (error) => {
-                    console.log(error.text);
-                  }
+    <div className="bg-white">
+      <header className="border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+          <p className="sci text-xs font-semibold uppercase tracking-[0.18em] text-brand">
+            Paso 2 de 2
+          </p>
+          <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+            Formulario de registro
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-slate-600">
+            Completá los datos del profesional responsable. Nos comunicaremos
+            vía email para enviarte las credenciales de acceso a REDCap.
+          </p>
+        </div>
+      </header>
+
+      <section className="mx-auto max-w-2xl px-4 py-14 sm:px-6 lg:px-8">
+        <p className="text-xs text-slate-500">
+          Dudas:{" "}
+          <a
+            href="mailto:registroargmat@gmail.com"
+            className="text-brand hover:underline"
+          >
+            registroargmat@gmail.com
+          </a>
+          . Todos los campos son requeridos.
+        </p>
+
+        <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+          <Formik<FormValues>
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={(values, { setSubmitting, resetForm }) => {
+              try {
+                emailjs
+                  .send(
+                    process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID ?? "",
+                    process.env.NEXT_PUBLIC_EMAIL_TEMPLE_ID ?? "",
+                    values,
+                    process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY ?? ""
+                  )
+                  .then(
+                    (result) => {
+                      console.log(result.text);
+                      Swal.fire({
+                        title: "Registro completo",
+                        text: "Tu registro fue exitoso. Nos pondremos en contacto contigo vía email para facilitarte las credenciales de acceso a REDCap.",
+                        icon: "success",
+                        position: "top",
+                        confirmButtonColor: "#991b1b",
+                      });
+                      setSubmitting(false);
+                      resetForm();
+                    },
+                    (error) => {
+                      console.log(error.text);
+                    }
+                  );
+              } catch (error) {
+                console.log(error, "Error de registro");
+                alert(
+                  "Hubo un problema con el registro, por favor intente de nuevo más tarde"
                 );
-            } catch (error) {
-              console.log(error, "Error de registro");
-              alert(
-                "Hubo un problema con el registro, por favor intente de nuevo más tarde"
-              );
-            }
-          }}
-        >
-          {({ errors, touched }) => (
-            <Form className={styles.form}>
-              <Field
-                className={styles.field}
-                id="nombre"
-                name="nombre"
-                placeholder="Nombre"
-              />
-              {errors.nombre && touched.nombre ? (
-                <div className={styles.error}>{errors.nombre}</div>
-              ) : null}
-              <Field
-                className={styles.field}
-                id="apellido"
-                name="apellido"
-                placeholder="Apellido"
-              />
-              {errors.apellido && touched.apellido ? (
-                <div className={styles.error}>{errors.apellido}</div>
-              ) : null}
-              <Field
-                className={styles.field}
-                id="email"
-                name="email"
-                placeholder="Email"
-                type="email"
-              />
-              {errors.email && touched.email ? (
-                <div className={styles.error}>{errors.email}</div>
-              ) : null}
-              <Field
-                className={styles.field}
-                id="telefono"
-                name="telefono"
-                placeholder="Teléfono de contacto (solo números)"
-              />
-              {errors.telefono && touched.telefono ? (
-                <div className={styles.error}>{errors.telefono}</div>
-              ) : null}
-              <Field
-                className={styles.field}
-                id="profesion"
-                name="profesion"
-                placeholder="Profesion"
-              />
-              {errors.profesion && touched.profesion ? (
-                <div className={styles.error}>{errors.profesion}</div>
-              ) : null}
-              <Field
-                className={styles.field}
-                id="provincia"
-                name="provincia"
-                placeholder="Provincia"
-              />
-              {errors.provincia && touched.provincia ? (
-                <div className={styles.error}>{errors.provincia}</div>
-              ) : null}
-              <Field
-                className={styles.field}
-                id="ciudad"
-                name="ciudad"
-                placeholder="Ciudad"
-              />
-              {errors.ciudad && touched.ciudad ? (
-                <div className={styles.error}>{errors.ciudad}</div>
-              ) : null}
-              <Field
-                className={styles.field}
-                id="instituto"
-                name="instituto"
-                placeholder="Instituto donde trabaja"
-              />
-              {errors.instituto && touched.instituto ? (
-                <div className={styles.error}>{errors.instituto}</div>
-              ) : null}
-              <button className={styles.button} type="submit">
-                Registrarse
-              </button>
-            </Form>
-          )}
-        </Formik>
-      </div>
+              }
+            }}
+          >
+            {({ errors, touched }) => (
+              <Form className="flex flex-col gap-6">
+                {[
+                  { name: "nombre", label: "Nombre" },
+                  { name: "apellido", label: "Apellido" },
+                  { name: "email", label: "Email", type: "email" },
+                  { name: "telefono", label: "Teléfono (solo números)" },
+                  { name: "profesion", label: "Profesión" },
+                  { name: "provincia", label: "Provincia" },
+                  { name: "ciudad", label: "Ciudad" },
+                  { name: "instituto", label: "Instituto donde trabaja" },
+                ].map((field) => {
+                  const name = field.name as keyof FormValues;
+                  const hasError = Boolean(errors[name] && touched[name]);
+                  return (
+                    <div key={name} className="flex flex-col gap-1.5">
+                      <label
+                        htmlFor={name}
+                        className="text-xs font-semibold uppercase tracking-wider text-slate-600"
+                      >
+                        {field.label}
+                      </label>
+                      <Field
+                        id={name}
+                        name={name}
+                        type={field.type ?? "text"}
+                        className={fieldClass}
+                      />
+                      {hasError && (
+                        <span className="text-xs text-destructive">
+                          {errors[name]}
+                        </span>
+                      )}
+                    </div>
+                  );
+                })}
+
+                <button
+                  type="submit"
+                  className="mt-2 h-11 rounded-full bg-brand text-base font-medium text-white transition-colors hover:bg-brand/90"
+                >
+                  Enviar registro
+                </button>
+              </Form>
+            )}
+          </Formik>
+        </div>
+      </section>
     </div>
   );
 }

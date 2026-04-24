@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
-import { Sofia_Sans } from "next/font/google";
+import { JetBrains_Mono, Sofia_Sans } from "next/font/google";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 
 const sofiaSans = Sofia_Sans({
   subsets: ["latin"],
+  variable: "--font-sofia-sans",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -52,11 +60,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body className={sofiaSans.className}>
-        <div>
+    <html
+      lang="es"
+      className={`${sofiaSans.variable} ${jetbrainsMono.variable}`}
+    >
+      <body
+        className={`${sofiaSans.className} bg-white text-slate-900 antialiased`}
+      >
+        <div className="flex min-h-screen flex-col">
           <Navbar />
-          {children}
+          <main className="flex-1">{children}</main>
           <Footer />
         </div>
       </body>

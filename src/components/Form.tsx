@@ -6,7 +6,6 @@ import Swal from "sweetalert2";
 import * as yup from "yup";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
 type FormValues = {
@@ -48,15 +47,20 @@ const validationSchema = yup.object().shape({
   instituto: yup.string().required("La institución donde trabaja es requerida"),
 });
 
-const fields: Array<{ name: keyof FormValues; label: string }> = [
-  { name: "nombre", label: "Nombre" },
-  { name: "apellido", label: "Apellido" },
-  { name: "email", label: "Email" },
-  { name: "telefono", label: "Telefono" },
-  { name: "profesion", label: "Profesion" },
-  { name: "provincia", label: "Provincia" },
-  { name: "ciudad", label: "Ciudad" },
-  { name: "instituto", label: "Instituto" },
+const fields: Array<{
+  name: keyof FormValues;
+  label: string;
+  type?: string;
+  col?: "full" | "half";
+}> = [
+  { name: "nombre", label: "Nombre", col: "half" },
+  { name: "apellido", label: "Apellido", col: "half" },
+  { name: "email", label: "Email", type: "email" },
+  { name: "telefono", label: "Teléfono", type: "tel", col: "half" },
+  { name: "profesion", label: "Profesión", col: "half" },
+  { name: "provincia", label: "Provincia", col: "half" },
+  { name: "ciudad", label: "Ciudad", col: "half" },
+  { name: "instituto", label: "Instituto donde trabaja" },
 ];
 
 export default function FormSec() {
@@ -77,10 +81,10 @@ export default function FormSec() {
               console.log(result.text);
               Swal.fire({
                 title: "Registro completo",
-                text: "Tu registro fue exitoso. Nos pondremos en contacto contigo via email para facilitarte las credenciales de acceso a redcap.",
+                text: "Tu registro fue exitoso. Nos pondremos en contacto contigo vía email para facilitarte las credenciales de acceso a REDCap.",
                 icon: "success",
                 position: "top",
-                confirmButtonColor: "#A50104",
+                confirmButtonColor: "#991b1b",
               });
               setSubmitting(false);
               resetForm();
@@ -99,90 +103,87 @@ export default function FormSec() {
   });
 
   return (
-    <div className="p-1 lg:p-6 mt-6 flex-column lg:flex gap-5">
-      <div className="p-1 text-xl text-center flex-column lg:flex-auto lg:w-32 m-1 lg:m-auto">
-        <h3>
-          Por favor complete el formulario correspondiente con todos los datos
-          solicitados y haga click en registrarse.
-        </h3>
-        <br />
-        <h3>
-          Si tiene alguna duda con respecto a los datos de registro puede
-          enviarnos un email a registroargmat@gmail.com.
-        </h3>
-        <br />
-        <h3>
-          <span className="text-red-900">IMPORTANTE</span>: Todos los campos son
-          requeridos para el registro.
-        </h3>
-        <br />
-      </div>
-      <div className="p-2 border-2 border-blue-800 rounded-md lg:flex-auto lg:w-64">
-        <form onSubmit={formik.handleSubmit} className="flex flex-col gap-3">
-          <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
-            {fields.slice(0, 2).map((field) => (
-              <FormField key={field.name} field={field} formik={formik} />
-            ))}
+    <section className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
+      <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr]">
+        <aside className="space-y-4 text-sm leading-relaxed text-slate-600">
+          <p className="sci text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+            Paso 2 · Datos del profesional
+          </p>
+          <p>
+            Completá el formulario con todos los datos solicitados. Nos vamos a
+            poner en contacto para enviarte las credenciales de acceso a
+            REDCap.
+          </p>
+          <p>
+            Dudas:{" "}
+            <a
+              href="mailto:registroargmat@gmail.com"
+              className="text-brand hover:underline"
+            >
+              registroargmat@gmail.com
+            </a>
+            .
+          </p>
+          <p className="text-xs text-slate-500">
+            Todos los campos son requeridos.
+          </p>
+        </aside>
+
+        <form
+          onSubmit={formik.handleSubmit}
+          className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8"
+        >
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+            {fields.map((field) => {
+              const hasError = Boolean(
+                formik.touched[field.name] && formik.errors[field.name]
+              );
+              return (
+                <div
+                  key={field.name}
+                  className={cn(
+                    "flex flex-col gap-1.5",
+                    field.col !== "half" && "sm:col-span-2"
+                  )}
+                >
+                  <label
+                    htmlFor={field.name}
+                    className="text-xs font-semibold uppercase tracking-wider text-slate-600"
+                  >
+                    {field.label}
+                  </label>
+                  <input
+                    id={field.name}
+                    name={field.name}
+                    type={field.type ?? "text"}
+                    value={formik.values[field.name]}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    aria-invalid={hasError}
+                    className={cn(
+                      "h-11 border-0 border-b border-slate-300 bg-transparent px-0 text-base text-slate-900 transition-colors outline-none focus:border-brand",
+                      hasError && "border-destructive focus:border-destructive"
+                    )}
+                  />
+                  {hasError && (
+                    <span className="text-xs text-destructive">
+                      {formik.errors[field.name]}
+                    </span>
+                  )}
+                </div>
+              );
+            })}
           </div>
-          <FormField field={fields[2]} formik={formik} />
-          <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
-            {fields.slice(3, 5).map((field) => (
-              <FormField key={field.name} field={field} formik={formik} />
-            ))}
-          </div>
-          <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
-            {fields.slice(5, 7).map((field) => (
-              <FormField key={field.name} field={field} formik={formik} />
-            ))}
-          </div>
-          <FormField field={fields[7]} formik={formik} />
+
           <Button
             type="submit"
-            className="w-full bg-red-800 hover:bg-red-900 text-white"
+            size="lg"
+            className="mt-8 h-11 w-full rounded-full bg-brand text-base font-medium text-white hover:bg-brand/90 sm:w-auto sm:px-8"
           >
-            Registrarse
+            Enviar registro
           </Button>
         </form>
       </div>
-    </div>
-  );
-}
-
-type FormFieldProps = {
-  field: { name: keyof FormValues; label: string };
-  formik: ReturnType<typeof useFormik<FormValues>>;
-};
-
-function FormField({ field, formik }: FormFieldProps) {
-  const hasError = Boolean(
-    formik.touched[field.name] && formik.errors[field.name]
-  );
-
-  return (
-    <div className="flex flex-col gap-1">
-      <label
-        htmlFor={field.name}
-        className="text-sm font-medium text-blue-900"
-      >
-        {field.label}
-      </label>
-      <Input
-        id={field.name}
-        name={field.name}
-        value={formik.values[field.name]}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        aria-invalid={hasError}
-        className={cn(
-          "border-blue-300 focus-visible:border-blue-500",
-          hasError && "border-destructive"
-        )}
-      />
-      {hasError && (
-        <span className="text-xs text-destructive">
-          {formik.errors[field.name]}
-        </span>
-      )}
-    </div>
+    </section>
   );
 }

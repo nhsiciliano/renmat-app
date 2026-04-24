@@ -11,23 +11,34 @@ const idVideo = [
 
 export default function VideosPage() {
   return (
-    <div className="bg-blue-50 px-10 py-5 lg:px-20 lg:py-10">
-      <h2 className="text-xl lg:text-2xl text-red-800 mx-5 my-3">
-        Videos sobre MAT
-      </h2>
-      <hr className="border-red-800 mx-5" />
-      <br />
-      <p className="p-6 text-xl">
-        Aquí encontrarás videos de nuestro canal de YouTube con mucha
-        información sobre MAT y temas relacionados.
-      </p>
-      <div className="flex flex-wrap gap-5 p-3 mt-5">
-        {idVideo.map((item) => (
-          <div className="basis-full lg:basis-5/12 m-auto" key={item.id}>
-            <YouTubeVideo videoId={item.hush} />
-          </div>
-        ))}
-      </div>
+    <div className="bg-white">
+      <header className="border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+          <p className="sci text-xs font-semibold uppercase tracking-[0.18em] text-brand">
+            Recursos · 03
+          </p>
+          <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+            Videos sobre MAT
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-slate-600">
+            Contenido audiovisual de nuestro canal de YouTube con información
+            sobre MAT y temas relacionados.
+          </p>
+        </div>
+      </header>
+
+      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {idVideo.map((item) => (
+            <div
+              key={item.id}
+              className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-900"
+            >
+              <YouTubeVideo videoId={item.hush} />
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

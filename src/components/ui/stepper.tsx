@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { CheckIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -36,23 +37,29 @@ function Stepper({ activeStep, onStepChange, children, className }: StepperProps
         totalSteps: steps.length,
       }}
     >
-      <div className={cn("flex w-full items-center", className)}>
+      <ol
+        className={cn("flex w-full items-start", className)}
+        aria-label="Progreso del registro"
+      >
         {steps.map((step, index) => (
           <React.Fragment key={index}>
-            {React.isValidElement(step)
-              ? React.cloneElement(step as React.ReactElement<StepProps>, { index })
-              : step}
+            <li className="flex flex-1 flex-col items-start first:flex-none last:flex-none">
+              {React.isValidElement(step)
+                ? React.cloneElement(step as React.ReactElement<StepProps>, { index })
+                : step}
+            </li>
             {index < steps.length - 1 && (
               <div
                 className={cn(
-                  "mx-2 h-0.5 flex-1 transition-colors",
-                  index < activeStep ? "bg-red-800" : "bg-gray-300"
+                  "mx-3 mt-4 h-px flex-1 transition-colors",
+                  index < activeStep ? "bg-brand" : "bg-slate-200"
                 )}
+                aria-hidden="true"
               />
             )}
           </React.Fragment>
         ))}
-      </div>
+      </ol>
     </StepperContext.Provider>
   );
 }
@@ -69,6 +76,7 @@ function Step({ index = 0, children, label, description, onClick }: StepProps) {
   const { activeStep, onStepClick } = useStepper();
   const isActive = activeStep === index;
   const isCompleted = activeStep > index;
+  const isDone = isCompleted;
 
   const handleClick = () => {
     onClick?.();
@@ -76,27 +84,28 @@ function Step({ index = 0, children, label, description, onClick }: StepProps) {
   };
 
   return (
-    <div className="relative flex flex-col items-center">
+    <div className="flex flex-col items-start gap-2">
       <button
         type="button"
         onClick={handleClick}
         className={cn(
-          "flex size-10 items-center justify-center rounded-full border-2 transition-colors",
-          isActive || isCompleted
-            ? "border-red-800 bg-red-800 text-white"
-            : "border-gray-300 bg-white text-gray-500"
+          "flex size-9 items-center justify-center rounded-full border text-sm font-semibold transition-colors",
+          isActive &&
+            "border-brand bg-brand text-white",
+          isDone && "border-brand bg-white text-brand",
+          !isActive && !isDone && "border-slate-300 bg-white text-slate-500"
         )}
         aria-current={isActive ? "step" : undefined}
       >
-        {children ?? index + 1}
+        {isDone ? <CheckIcon className="size-4" /> : children ?? index + 1}
       </button>
       {(label || description) && (
-        <div className="absolute top-12 w-max text-center">
+        <div className="min-w-[120px]">
           {label && (
             <div
               className={cn(
-                "text-sm font-semibold",
-                isActive ? "text-blue-gray-900" : "text-gray-500"
+                "sci text-[11px] font-semibold uppercase tracking-wider",
+                isActive || isDone ? "text-slate-900" : "text-slate-400"
               )}
             >
               {label}
@@ -105,8 +114,8 @@ function Step({ index = 0, children, label, description, onClick }: StepProps) {
           {description && (
             <div
               className={cn(
-                "text-xs font-normal",
-                isActive ? "text-blue-gray-700" : "text-gray-500"
+                "mt-0.5 text-sm",
+                isActive ? "text-slate-900" : "text-slate-500"
               )}
             >
               {description}
