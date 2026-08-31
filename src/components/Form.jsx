@@ -133,9 +133,10 @@ export default function FormSec() {
                 <h1 id='registration-form-title' className='mb-4 text-2xl font-bold text-red-800 lg:text-3xl'>
                     Formulario de registro
                 </h1>
-                <p>Por favor complete el formulario correspondiente con todos los datos solicitados y haga click en registrarse.</p>
+                <p>Completá el formulario con todos los datos solicitados y seleccioná Registrarse.</p>
                 <p className='mt-4'>
-                    Si tiene alguna duda con respecto a los datos de registro puede enviarnos un email a registroargmat@gmail.com.
+                    Si tenés alguna duda sobre los datos de registro, escribinos a{' '}
+                    <a className='font-semibold text-blue-900 underline underline-offset-4 hover:text-red-800' href='mailto:registroargmat@gmail.com'>registroargmat@gmail.com</a>.
                 </p>
                 <p className='mt-4'><span className='font-bold text-red-900'>IMPORTANTE</span>: Todos los campos son requeridos para el registro.</p>
             </div>

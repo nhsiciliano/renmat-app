@@ -10,13 +10,22 @@ const page = () => {
                 <p>Ante cualquier duda con respecto al registro o al acceso al sistema REDCap
                     podés comunicarte con nosotros mediante los siguientes medios:
                 </p>
-                <br />
-                <p>- Email: <b>registroargmat@gmail.com</b></p>
-                <br />
-                <p>- Teléfonos: <b>4809-1000 / 4809-1022</b></p>
-                <br />
-                <p>Recordá que una vez que se completa el registro mediante nuestra plataforma
-                    nos pondremos en contacto mediante email para enviar los datos de acceso al
+                <address className='my-6 not-italic'>
+                    <p>
+                        Correo electrónico:{' '}
+                        <a className='font-bold text-blue-900 underline underline-offset-4 hover:text-red-800' href='mailto:registroargmat@gmail.com'>
+                            registroargmat@gmail.com
+                        </a>
+                    </p>
+                    <p className='mt-3'>
+                        Teléfonos:{' '}
+                        <a className='font-bold text-blue-900 underline underline-offset-4 hover:text-red-800' href='tel:+541148091000'>4809-1000</a>
+                        {' / '}
+                        <a className='font-bold text-blue-900 underline underline-offset-4 hover:text-red-800' href='tel:+541148091022'>4809-1022</a>
+                    </p>
+                </address>
+                <p>Recordá que, una vez completado el registro mediante nuestra plataforma,
+                    nos pondremos en contacto por correo electrónico para enviar los datos de acceso al
                     sistema REDCap.
                 </p>
             </div>

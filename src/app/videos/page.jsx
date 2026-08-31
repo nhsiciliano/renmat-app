@@ -40,10 +40,11 @@ const page = () => {
             </p>
             <div className='flex flex-wrap gap-5 p-3 mt-5'>
                 {
-                    idVideo.map((item, index) => (
-                        <div className='basis-full lg:basis-5/12 m-auto' key={index}>
+                    idVideo.map((item) => (
+                        <div className='basis-full lg:basis-5/12 m-auto' key={item.id}>
                         <YouTubeVideo
                             videoId={item.hush}
+                            title={`Video sobre Microangiopatías Trombóticas ${item.id}`}
                         />
                     </div>
                     ))

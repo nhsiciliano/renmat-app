@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import React from 'react'
-import { Button } from '../../components/material-tailwind';
 
 const page = () => {
     const papers = [
@@ -80,19 +79,25 @@ const page = () => {
             <h1 className='text-xl lg:text-2xl text-red-800 mx-5 my-3'>Bibliografía disponible para consultar</h1>
             <hr className='border-red-800 mx-5' />
             <br />
-            <p className='p-6 text-xl'>Acontinuación brindamos Bibliografía con sus correspondientes links de acceso
+            <p className='p-6 text-xl'>A continuación brindamos bibliografía con sus correspondientes enlaces de acceso
                 para que puedan ser consultados de manera completa:
             </p>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 p-2 lg:p-6'>
-                {papers.map((item, index) => (
-                    <div className='rounded-md bg-white p-6' key={index}>
-                        <h3 className='text-[14px] text-gray-600 mb-5'>{item.underTitle}</h3>
-                        <h2 className='text-[20px] lg:text-[24px] leading-normal font-bold mb-5'>{item.title}</h2>
-                        <h4 className='text-[16px] text-blue-800 font-bold mt-2 mb-8'>{item.authors}</h4>
-                        <Link href={item.link} target="_blank">
-                            <Button className='bg-red-800'>Acceder al Paper</Button>
+                {papers.map((item) => (
+                    <article className='rounded-md bg-white p-6' key={item.id}>
+                        <p className='mb-5 text-sm text-gray-600'>{item.underTitle}</p>
+                        <h2 className='mb-5 text-xl font-bold leading-normal lg:text-2xl'>{item.title}</h2>
+                        <p className='mb-8 mt-2 font-bold text-blue-800'>{item.authors}</p>
+                        <Link
+                            href={item.link}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            aria-label={`Acceder a “${item.title}” (se abre en una nueva pestaña)`}
+                            className='inline-flex min-h-11 items-center justify-center rounded-lg bg-red-800 px-5 py-3 text-sm font-bold uppercase text-white shadow-md transition hover:bg-red-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900'
+                        >
+                            Acceder a la publicación
                         </Link>
-                    </div>
+                    </article>
                 ))}
             </div>
         </div>
