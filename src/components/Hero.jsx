@@ -20,6 +20,7 @@ export default function Hero() {
                     alt='Identidad visual del Registro Argentino de Microangiopatías Trombóticas sobre una imagen de glóbulos rojos'
                     width={650}
                     height={500}
+                    priority
                     className='object-cover rounded-lg m-auto mt-3 lg:mt-5'
                 />
             </div>

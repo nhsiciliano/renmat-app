@@ -10,8 +10,8 @@ const Footer = () => {
                     src='/logoregarmat.png'
                     alt="RegArMAT, Registro Argentino de Microangiopatías Trombóticas"
                     width={400}
-                    height={200}
-                    className="rounded-lg"
+                    height={138}
+                    className="h-auto w-full max-w-[400px] rounded-lg"
                 />
                 <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
                     <li>

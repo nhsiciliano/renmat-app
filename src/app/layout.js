@@ -11,28 +11,47 @@ const inter = Sofia_Sans({
 })
 
 export const metadata = {
-  title: 'RegArMAT | Registro Argentino de Microangiopatias Tromboticas',
-  description: 'Sitio web abierto a la comunidad medica y cientifica para el registro de pacientes en la República Argentina con Microangiopatias Tromboticas',
+  metadataBase: new URL('https://www.regarmat.com.ar'),
+  title: 'RegArMAT | Registro Argentino de Microangiopatías Trombóticas',
+  description: 'Sitio web abierto a la comunidad médica y científica para el registro de pacientes en la República Argentina con Microangiopatías Trombóticas.',
+  keywords: [
+    'Microangiopatías Trombóticas',
+    'MAT',
+    'Argentina',
+    'registro',
+    'medicina',
+    'ciencia',
+    'PTT',
+    'SUHa',
+    'REDCap',
+  ],
+  applicationName: 'RegArMAT',
+  openGraph: {
+    title: 'RegArMAT | Registro Argentino de Microangiopatías Trombóticas',
+    description: 'Sitio web abierto a la comunidad médica y científica para el registro de pacientes en la República Argentina con Microangiopatías Trombóticas.',
+    type: 'website',
+    locale: 'es_AR',
+    siteName: 'RegArMAT',
+    images: [
+      {
+        url: 'https://www.regarmat.com.ar/resmat.jpg',
+        width: 1595,
+        height: 901,
+        alt: 'RegArMAT, Registro Argentino de Microangiopatías Trombóticas',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'RegArMAT | Registro Argentino de Microangiopatías Trombóticas',
+    description: 'Sitio web abierto a la comunidad médica y científica para el registro de pacientes en la República Argentina con Microangiopatías Trombóticas.',
+    images: ['https://www.regarmat.com.ar/resmat.jpg'],
+  },
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <head>
-        <title>RegArMAT | Registro Argentino de Microangiopatias Tromboticas</title>
-        <meta name="description" content="Sitio web abierto a la comunidad médica y científica para el registro de pacientes en la República Argentina con Microangiopatías Trombóticas" />
-        <meta name="keywords" content="Microangiopatías Trombóticas, MAT, Argentina, registro, medicina, ciencia, PTT, SUHa, REDCap" />
-        <link rel="canonical" href="https://www.regarmat.com.ar/" />
-        <meta property="og:title" content="RegArMAT | Registro Argentino de Microangiopatias Tromboticas" />
-        <meta property="og:description" content="Sitio web abierto a la comunidad médica y científica para el registro de pacientes en la República Argentina con Microangiopatías Trombóticas" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.regarmat.com.ar/" />
-        <meta property="og:image" content="https://www.regarmat.com.ar/public/resmat.jpg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="RegArMAT | Registro Argentino de Microangiopatias Tromboticas" />
-        <meta name="twitter:description" content="Sitio web abierto a la comunidad médica y científica para el registro de pacientes en la República Argentina con Microangiopatías Trombóticas" />
-        <meta name="twitter:image" content="https://www.regarmat.com.ar/public/resmat.jpg" />
-      </head>
       <body className={inter.className}>
         <ThemeProvider>
           <div>

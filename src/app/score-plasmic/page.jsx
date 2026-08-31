@@ -10,8 +10,8 @@ const page = () => {
                     sobre MAT y algunas herramientas virtuales de uso científico.
                 </p>
             </div>
-            <div className='m-auto flex bg-blue-200 w-[300px] lg:w-[800px] h-[300px] rounded-md'>
-                <h2 className='text-3xl flex items-center text-center m-auto font-bold'>PROXIMAMENTE INFORMACION UTIL</h2>
+            <div className='m-auto flex min-h-[300px] w-full max-w-[800px] rounded-md bg-blue-200 p-6'>
+                <h2 className='m-auto flex items-center text-center text-3xl font-bold'>PRÓXIMAMENTE INFORMACIÓN ÚTIL</h2>
             </div>
         </div>
     )
