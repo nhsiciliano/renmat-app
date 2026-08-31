@@ -4,7 +4,6 @@ import {
     Navbar,
     Collapse,
     Typography,
-    Button,
     IconButton,
     Menu,
     MenuHandler,
@@ -18,10 +17,10 @@ const Navigate = () => {
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
-        window.addEventListener(
-            "resize",
-            () => window.innerWidth >= 960 && setOpen(false),
-        );
+        const closeDesktopMenu = () => window.innerWidth >= 960 && setOpen(false)
+
+        window.addEventListener("resize", closeDesktopMenu)
+        return () => window.removeEventListener("resize", closeDesktopMenu)
     }, []);
 
     const navList = (
@@ -33,7 +32,7 @@ const Navigate = () => {
                 className="p-1 font-normal"
             >
                 <Link href='/' legacyBehavior={true}>
-                    <a className="flex items-center hover:text-red-800 transition duration-300 ease-in-out">
+                    <a className="flex min-h-11 items-center rounded-sm hover:text-red-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 transition duration-300 ease-in-out">
                         Inicio
                     </a>
                 </Link>
@@ -45,7 +44,7 @@ const Navigate = () => {
                 className="p-1 font-normal"
             >
                 <Link href='/descripcion-mat' legacyBehavior={true}>
-                    <a className="flex items-center hover:text-red-800 transition duration-300 ease-in-out">
+                    <a className="flex min-h-11 items-center rounded-sm hover:text-red-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 transition duration-300 ease-in-out">
                         Descripción MAT
                     </a>
                 </Link>
@@ -57,7 +56,7 @@ const Navigate = () => {
                 className="p-1 font-normal"
             >
                 <Link href='/registro' legacyBehavior={true}>
-                    <a className="flex items-center hover:text-red-800 transition duration-300 ease-in-out">
+                    <a className="flex min-h-11 items-center rounded-sm hover:text-red-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 transition duration-300 ease-in-out">
                         Registro
                     </a>
                 </Link>
@@ -70,12 +69,12 @@ const Navigate = () => {
             >
                 <Menu>
                     <MenuHandler>
-                        <a className="flex items-center cursor-pointer hover:text-red-800 transition duration-300 ease-in-out">
+                        <button type="button" className="flex min-h-11 items-center rounded-sm hover:text-red-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 transition duration-300 ease-in-out">
                             Herramientas
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="ml-1 mt-1 w-4 h-4">
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="ml-1 mt-1 w-4 h-4">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                             </svg>
-                        </a>
+                        </button>
                     </MenuHandler>
                     <MenuList>
                         <MenuItem>
@@ -97,7 +96,7 @@ const Navigate = () => {
                 className="p-1 font-normal"
             >
                 <Link href='/contacto' legacyBehavior={true}>
-                    <a className="flex items-center hover:text-red-800 transition duration-300 ease-in-out">
+                    <a className="flex min-h-11 items-center rounded-sm hover:text-red-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 transition duration-300 ease-in-out">
                         Contacto
                     </a>
                 </Link>
@@ -107,9 +106,9 @@ const Navigate = () => {
 
     return (
         <div className="sticky top-0 z-10 m-3 max-h-[768px] overflow-hidden px-4 py-2 lg:px-8 lg:py-4">
-            <Navbar className="h-max max-w-full rounded-lg backdrop-filter backdrop-blur-lg bg-opacity-30">
+            <Navbar aria-label="Navegación principal" className="h-max max-w-full rounded-lg backdrop-filter backdrop-blur-lg bg-opacity-30">
                 <div className="flex items-center justify-between text-blue-gray-900">
-                    <Link href='/'>
+                    <Link href='/' aria-label='RegArMAT, ir al inicio' className='rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900'>
                         <div className="text-[30px] font-bold">
                             <span className="text-blue-900">RegAr</span><span className="text-red-800">MAT</span>
                         </div>
@@ -117,25 +116,25 @@ const Navigate = () => {
                     <div className="mr-4 hidden lg:block">{navList}</div>
                     <div className="flex items-center gap-4">
                         <div className="flex items-center gap-x-1">
-                            <Link href='/condiciones' legacyBehavior={true}>
-                                <Button
-                                    variant="gradient"
-                                    color="indigo"
-                                    size="md"
-                                    className="hidden lg:inline-block"
-                                >
-                                    <span>Quiero Registrarme</span>
-                                </Button>
+                            <Link
+                                href='/condiciones'
+                                className='hidden min-h-11 items-center justify-center rounded-lg bg-indigo-600 px-5 py-2 text-sm font-bold uppercase text-white shadow-md transition hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 lg:inline-flex'
+                            >
+                                Quiero Registrarme
                             </Link>
                         </div>
                         <IconButton
                             variant="text"
-                            className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+                            className="ml-auto h-11 w-11 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
                             ripple={false}
                             onClick={() => setOpen(!open)}
+                            aria-label={open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+                            aria-expanded={open}
+                            aria-controls='mobile-navigation'
                         >
                             {open ? (
                                 <svg
+                                    aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
                                     className="h-6 w-6"
@@ -151,6 +150,7 @@ const Navigate = () => {
                                 </svg>
                             ) : (
                                 <svg
+                                    aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-6 w-6"
                                     fill="none"
@@ -168,13 +168,16 @@ const Navigate = () => {
                     </div>
                 </div>
                 <Collapse open={open}>
-                    {navList}
-                    <div className="flex items-center gap-x-1">
-                        <Link href='/condiciones' legacyBehavior={true}>
-                            <Button fullWidth variant="gradient" size="md" color="indigo" className="">
-                                <span>Quiero Registrarme</span>
-                            </Button>
-                        </Link>
+                    <div id='mobile-navigation'>
+                        {open && navList}
+                        {open && (
+                            <Link
+                                href='/condiciones'
+                                className='flex min-h-11 w-full items-center justify-center rounded-lg bg-indigo-600 px-5 py-2 text-sm font-bold uppercase text-white shadow-md transition hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900'
+                            >
+                                Quiero Registrarme
+                            </Link>
+                        )}
                     </div>
                 </Collapse>
             </Navbar>

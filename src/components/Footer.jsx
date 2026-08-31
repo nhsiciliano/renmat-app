@@ -8,7 +8,7 @@ const Footer = () => {
             <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-red-800 text-center md:justify-between">
                 <Image
                     src='/logoregarmat.png'
-                    alt="logo-ct"
+                    alt="RegArMAT, Registro Argentino de Microangiopatías Trombóticas"
                     width={400}
                     height={200}
                     className="rounded-lg"
@@ -53,15 +53,15 @@ const Footer = () => {
                 </ul>
             </div>
             <hr className="my-8 border-blue-gray-50" />
-            <h2 className='text-center text-white text-2xl'>
+            <p className='text-center text-white text-2xl'>
                 Ante cualquier duda comunicate con nosotros a nuestro email de contacto:
                 <br />
                 <span className='font-bold'>registroargmat@gmail.com</span>
-            </h2>
+            </p>
             <br />
-            <h2 color="blue-gray" className="text-center text-white font-normal">
+            <p className="text-center text-white font-normal">
                 &copy; 2024 RegArMAT | Registro Argentino de Microangiopatías Trombóticas
-            </h2>
+            </p>
         </footer>
     )
 }

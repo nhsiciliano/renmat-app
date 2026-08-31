@@ -15,8 +15,17 @@ const Page = () => {
     const [isLastStep, setIsLastStep] = useState(false);
     const [isFirstStep, setIsFirstStep] = useState(false);
 
-    const handleNext = () => !isLastStep && setActiveStep((cur) => cur + 1);
-    const handlePrev = () => !isFirstStep && setActiveStep((cur) => cur - 1);
+    const handleNext = () => {
+        if (isLastStep) return
+        setActiveStep((cur) => cur + 1)
+        requestAnimationFrame(() => document.getElementById('registration-form-title')?.focus())
+    }
+
+    const handlePrev = () => {
+        if (isFirstStep) return
+        setActiveStep((cur) => cur - 1)
+        requestAnimationFrame(() => document.getElementById('conditions-title')?.focus())
+    }
 
     const StepElements = [
         <Conditions key='first' />,
@@ -33,8 +42,8 @@ const Page = () => {
                         isLastStep={(value) => setIsLastStep(value)}
                         isFirstStep={(value) => setIsFirstStep(value)}
                     >
-                        <Step onClick={() => setActiveStep(0)}>
-                            <UserIcon className="h-5 w-5" />
+                        <Step aria-current={activeStep === 0 ? 'step' : undefined}>
+                            <UserIcon aria-hidden='true' className="h-5 w-5" />
                             <div className="absolute -bottom-[4.5rem] w-max text-center">
                                 <Typography
                                     variant="h6"
@@ -50,17 +59,17 @@ const Page = () => {
                                 </Typography>
                             </div>
                         </Step>
-                        <Step onClick={() => setActiveStep(1)}>
-                            <IdentificationIcon className="h-5 w-5" />
+                        <Step aria-current={activeStep === 1 ? 'step' : undefined}>
+                            <IdentificationIcon aria-hidden='true' className="h-5 w-5" />
                             <div className="absolute -bottom-[4.5rem] w-max text-center">
                                 <Typography
                                     variant="h6"
-                                    color={activeStep === 0 ? "blue-gray" : "gray"}
+                                    color={activeStep === 1 ? "blue-gray" : "gray"}
                                 >
                                     Paso 2
                                 </Typography>
                                 <Typography
-                                    color={activeStep === 0 ? "blue-gray" : "gray"}
+                                    color={activeStep === 1 ? "blue-gray" : "gray"}
                                     className="font-normal"
                                 >
                                     Formulario de Registro
@@ -74,12 +83,14 @@ const Page = () => {
                         StepElements[activeStep]
                     }
                 </div>
-                <div className="mt-3 flex justify-center">
+                <div className="mt-3 flex flex-wrap justify-center gap-3">
                     {
                         isLastStep ? (
-                            ''
+                            <Button onClick={handlePrev} disabled={isFirstStep} variant='outlined' className='min-h-11 border-blue-900 text-sm text-blue-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 lg:text-lg'>
+                                VOLVER A LAS CONDICIONES
+                            </Button>
                         ) : (
-                            <Button onClick={handleNext} disabled={isLastStep} className='bg-red-800 text-sm lg:text-lg'>
+                            <Button onClick={handleNext} disabled={isLastStep} className='min-h-11 bg-red-800 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 lg:text-lg'>
                                 ACEPTO LAS CONDICIONES DE REGISTRO
                             </Button>
                         )

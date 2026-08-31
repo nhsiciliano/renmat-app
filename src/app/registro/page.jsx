@@ -28,7 +28,7 @@ const Page = () => {
 
     return (
         <div className='bg-blue-50 px-10 py-5 lg:px-20 lg:py-10'>
-            <h2 className='text-xl lg:text-2xl text-red-800 mx-5 my-3'>Información sobre el Registro</h2>
+            <h1 className='text-xl lg:text-2xl text-red-800 mx-5 my-3'>Información sobre el Registro</h1>
             <hr className='border-red-800 mx-5' />
             <br />
             <div className='ml-1 lg:ml-5 mt-3'>

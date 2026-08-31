@@ -33,15 +33,18 @@ export default function RootLayout({ children }) {
         <meta name="twitter:description" content="Sitio web abierto a la comunidad médica y científica para el registro de pacientes en la República Argentina con Microangiopatías Trombóticas" />
         <meta name="twitter:image" content="https://www.regarmat.com.ar/public/resmat.jpg" />
       </head>
-      <ThemeProvider>
-        <body className={inter.className}>
+      <body className={inter.className}>
+        <ThemeProvider>
           <div>
+            <a href="#main-content" className="skip-link">Saltar al contenido principal</a>
             <Navbar />
-            {children}
+            <main id="main-content" tabIndex={-1}>
+              {children}
+            </main>
             <Footer />
           </div>
-        </body>
-      </ThemeProvider>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

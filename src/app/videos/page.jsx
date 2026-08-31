@@ -32,7 +32,7 @@ const page = () => {
 
     return (
         <div className='bg-blue-50 px-10 py-5 lg:px-20 lg:py-10'>
-            <h2 className='text-xl lg:text-2xl text-red-800 mx-5 my-3'>Videos sobre MAT</h2>
+            <h1 className='text-xl lg:text-2xl text-red-800 mx-5 my-3'>Videos sobre MAT</h1>
             <hr className='border-red-800 mx-5' />
             <br />
             <p className='p-6 text-xl'>Aquí encontrarás videos de nuestro canal de YouTube con mucha información sobre MAT

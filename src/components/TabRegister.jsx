@@ -8,7 +8,6 @@ import {
     TabsBody,
     Tab,
     TabPanel,
-    Button,
 } from "@material-tailwind/react";
 
 
@@ -33,7 +32,7 @@ export default function TabRegister() {
     ];
     return (
         <div className='p-3'>
-            <Tabs id="custom-animation" value="html" className='p-5 border-2 border-solid border-gray-400 rounded-lg'>
+            <Tabs id="custom-animation" value="registro" className='p-5 border-2 border-solid border-gray-400 rounded-lg'>
                 <TabsHeader className='bg-red-800 bg-opacity-0'>
                     {data.map(({ label, value }) => (
                         <Tab key={value} value={value} className='p-2 text-lg font-bold lg:text-xl'>
@@ -54,15 +53,11 @@ export default function TabRegister() {
                                 {desc}
                             </div>
                             <div className='flex items-center justify-center mt-[30px]'>
-                                <Link href={link} legacyBehavior={true}>
-                                    <Button
-                                        variant="gradient"
-                                        color="indigo"
-                                        size="lg"
-                                        className="inline-block"
-                                    >
-                                        <span>{button}</span>
-                                    </Button>
+                                <Link
+                                    href={link}
+                                    className='inline-flex min-h-11 items-center justify-center rounded-lg bg-indigo-600 px-6 py-3 text-sm font-bold uppercase text-white shadow-md transition hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900'
+                                >
+                                    {button}
                                 </Link>
                             </div>
                         </TabPanel>

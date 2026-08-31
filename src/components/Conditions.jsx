@@ -3,11 +3,11 @@ import React from 'react'
 export default function Conditions() {
     return (
         <div className='p-1 lg:p-6 mt-6'>
-            <h2 className='text-xl lg:text-2xl font-bold text-center mb-5'>
+            <h1 id='conditions-title' tabIndex={-1} className='text-xl lg:text-2xl font-bold text-center mb-5'>
                 CONDICIONES DE ACEPTACIÓN PARA INGRESAR COMO PROFESIONAL
                 RESPONSABLE AL “REGISTRO DE PACIENTES CON MICROANGIOPATIAS
                 TROMBOTICAS EN ARGENTINA”
-            </h2>
+            </h1>
             <br />
             <p className='text-lg text-justify'>1. Como <b>PROFESIONAL RESPONSABLE</b>, procederé a garantizar la confidencialidad
                 de la identidad de todos los pacientes, que incluyen medidas técnicas y de organización
