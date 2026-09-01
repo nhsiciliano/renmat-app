@@ -13,7 +13,7 @@ const page = () => {
                             <circle cx="88" cy="35" r="9" fill="var(--atlas-ink)" stroke="none" />
                             <circle cx="165" cy="54" r="6" fill="var(--atlas-red)" stroke="none" />
                         </svg>
-                        <p className="mt-8 text-sm font-bold uppercase tracking-[0.13em] text-[var(--atlas-teal)]">En preparación</p>
+                        <p className="mt-8 text-sm font-bold uppercase tracking-[0.13em] text-[var(--atlas-teal-dark)]">En preparación</p>
                         <h2 className="mx-auto mt-3 max-w-[18ch] text-balance text-3xl font-extrabold tracking-[-0.025em] text-[var(--atlas-ink)] sm:text-4xl">Próximamente información útil</h2>
                     </div>
                 </Reveal>
