@@ -130,9 +130,9 @@ export default function Navigate() {
         {open && (
           <motion.div
             id="mobile-navigation"
-            initial={{ opacity: 0.75, y: -8, clipPath: 'inset(0 0 100% 0)' }}
-            animate={{ opacity: 1, y: 0, clipPath: 'inset(0 0 0% 0)' }}
-            exit={{ opacity: 0.75, y: -6, clipPath: 'inset(0 0 100% 0)' }}
+            initial={{ y: -8, clipPath: 'inset(0 0 100% 0)' }}
+            animate={{ y: 0, clipPath: 'inset(0 0 0% 0)' }}
+            exit={{ y: -6, clipPath: 'inset(0 0 100% 0)' }}
             transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
             className="border-t border-[var(--atlas-line)] bg-white px-5 pb-6 pt-3 shadow-[0_14px_30px_rgba(11,43,75,0.09)] xl:hidden"
           >

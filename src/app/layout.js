@@ -4,8 +4,6 @@ import MotionProvider from '@/components/MotionProvider'
 import { Sofia_Sans } from 'next/font/google'
 import './globals.css'
 
-import { ThemeProvider } from '../components/material-tailwind';
-
 
 const inter = Sofia_Sans({
   subsets: ['latin']
@@ -71,16 +69,14 @@ export default function RootLayout({ children }) {
           }}
         />
         <MotionProvider>
-          <ThemeProvider>
-            <div className="site-shell">
-              <a href="#main-content" className="skip-link">Saltar al contenido principal</a>
-              <Navbar />
-              <main id="main-content" tabIndex={-1}>
-                {children}
-              </main>
-              <Footer />
-            </div>
-          </ThemeProvider>
+          <div className="site-shell">
+            <a href="#main-content" className="skip-link">Saltar al contenido principal</a>
+            <Navbar />
+            <main id="main-content" tabIndex={-1}>
+              {children}
+            </main>
+            <Footer />
+          </div>
         </MotionProvider>
       </body>
     </html>

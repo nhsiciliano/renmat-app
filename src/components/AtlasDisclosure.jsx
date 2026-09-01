@@ -7,7 +7,7 @@ export default function AtlasDisclosure({ items, label }) {
   const [open, setOpen] = useState(0)
 
   return (
-    <div className="border-t border-[var(--atlas-line)]" aria-label={label}>
+    <div className="border-t border-[var(--atlas-line)]" role="group" aria-label={label}>
       {items.map((item, index) => {
         const isOpen = open === index
         const triggerId = `disclosure-trigger-${index}`
@@ -38,10 +38,10 @@ export default function AtlasDisclosure({ items, label }) {
                   id={panelId}
                   role="region"
                   aria-labelledby={triggerId}
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ height: { duration: 0.28 }, opacity: { duration: 0.2 } }}
+                  initial={{ height: 0 }}
+                  animate={{ height: 'auto' }}
+                  exit={{ height: 0 }}
+                  transition={{ height: { duration: 0.28 } }}
                   className="overflow-hidden"
                 >
                   <div className="max-w-[72ch] pb-7 pr-2 text-lg leading-relaxed text-[var(--atlas-ink-soft)] sm:pr-14">

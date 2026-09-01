@@ -3,12 +3,11 @@ import { PageIntro, Reveal } from '@/components/AtlasPage'
 const page = () => {
     return (
         <>
-            <PageIntro eyebrow="Canal institucional" title="Contacto" description="Ante cualquier duda con respecto al registro o al acceso al sistema REDCap podés comunicarte con nosotros mediante los siguientes medios:" />
+            <PageIntro title="Contacto" description="Ante cualquier duda con respecto al registro o al acceso al sistema REDCap podés comunicarte con nosotros mediante los siguientes medios:" />
             <section className="bg-white px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
                 <Reveal className="mx-auto grid max-w-[1440px] gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(520px,1.2fr)] lg:items-start lg:gap-20">
                     <div>
-                        <p className="text-sm font-bold uppercase tracking-[0.13em] text-[var(--atlas-teal-dark)]">Datos de contacto</p>
-                        <h2 className="mt-3 max-w-[14ch] text-3xl font-extrabold tracking-[-0.025em] text-[var(--atlas-ink)] sm:text-4xl">Estamos disponibles para acompañar el acceso</h2>
+                        <h2 className="max-w-[14ch] text-3xl font-extrabold tracking-[-0.025em] text-[var(--atlas-ink)] sm:text-4xl">Estamos disponibles para acompañar el acceso</h2>
                     </div>
                     <div>
                         <address className="grid gap-4 not-italic sm:grid-cols-2">

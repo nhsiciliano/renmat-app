@@ -76,7 +76,7 @@ const page = () => {
     ]
     return (
         <>
-            <PageIntro eyebrow="Evidencia científica" title="Bibliografía disponible para consultar" description="A continuación brindamos bibliografía con sus correspondientes enlaces de acceso para que puedan ser consultados de manera completa:" />
+            <PageIntro title="Bibliografía disponible para consultar" description="A continuación brindamos bibliografía con sus correspondientes enlaces de acceso para que puedan ser consultados de manera completa:" />
             <section className="bg-white px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
                 <Reveal className="mx-auto max-w-[1180px]">
                     <ol className="border-t border-[var(--atlas-line)]">
@@ -85,9 +85,9 @@ const page = () => {
                         <article className="grid gap-5 py-8 sm:grid-cols-[64px_minmax(0,1fr)] sm:py-10 lg:grid-cols-[80px_minmax(0,1fr)_auto] lg:items-start lg:gap-8">
                             <span aria-hidden="true" className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--atlas-blue-soft)] text-lg font-extrabold text-[var(--atlas-ink)]">{String(item.id).padStart(2, '0')}</span>
                             <div className="min-w-0">
-                                <p className="text-sm font-semibold leading-relaxed text-[var(--atlas-teal-dark)]">{item.underTitle}</p>
+                                <p className="max-w-[65ch] text-sm font-semibold leading-relaxed text-[var(--atlas-teal-dark)]">{item.underTitle}</p>
                                 <h2 className="mt-3 max-w-[34ch] text-2xl font-extrabold leading-tight tracking-[-0.02em] text-[var(--atlas-ink)] sm:text-3xl">{item.title}</h2>
-                                <p className="mt-4 max-w-[90ch] leading-relaxed text-[var(--atlas-ink-soft)]">{item.authors}</p>
+                                <p className="mt-4 max-w-[65ch] leading-relaxed text-[var(--atlas-ink-soft)]">{item.authors}</p>
                             </div>
                             <Link href={item.link} target="_blank" rel="noopener noreferrer" aria-label={`Acceder a “${item.title}” (se abre en una nueva pestaña)`} className="inline-flex min-h-12 items-center justify-center gap-2 self-start rounded-xl border border-[var(--atlas-line)] bg-white px-5 py-3 font-bold text-[var(--atlas-ink)] transition-colors hover:bg-[var(--atlas-blue-soft)] sm:col-start-2 lg:col-start-auto">
                                 Acceder

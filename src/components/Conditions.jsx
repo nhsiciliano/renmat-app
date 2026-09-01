@@ -19,10 +19,9 @@ const clauses = [
 
 export default function Conditions() {
     return (
-        <section aria-labelledby="conditions-title" className="mx-auto max-w-[960px]">
+        <section aria-labelledby="conditions-title" className="mx-auto max-w-[820px]">
             <div className="border-b border-[var(--atlas-line)] pb-8">
-                <p className="text-sm font-bold uppercase tracking-[0.13em] text-[var(--atlas-teal-dark)]">Lectura y aceptación</p>
-                <h2 id="conditions-title" tabIndex={-1} className="mt-3 text-balance text-3xl font-extrabold leading-tight tracking-[-0.025em] text-[var(--atlas-ink)] sm:text-4xl">
+                <h2 id="conditions-title" tabIndex={-1} className="text-balance text-3xl font-extrabold leading-tight tracking-[-0.025em] text-[var(--atlas-ink)] sm:text-4xl">
                     Condiciones de aceptación para ingresar como profesional responsable al “Registro de pacientes con Microangiopatías Trombóticas en Argentina”
                 </h2>
             </div>

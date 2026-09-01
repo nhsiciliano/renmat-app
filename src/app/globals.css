@@ -75,7 +75,7 @@ a {
   left: 1rem;
   z-index: 100;
   transform: translateY(-150%);
-  border-radius: 0 0 0.5rem 0.5rem;
+  border-radius: 0 0 0.75rem 0.75rem;
   background: var(--atlas-ink);
   color: white;
   padding: 0.75rem 1rem;

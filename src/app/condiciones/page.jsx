@@ -52,7 +52,7 @@ export default function CondicionesPage() {
 
     return (
         <>
-            <PageIntro eyebrow="Solicitud de participación" title="Registro profesional" description="Revisá las condiciones de participación y, una vez aceptadas, completá tus datos profesionales." />
+            <PageIntro title="Registro profesional" description="Revisá las condiciones de participación y, una vez aceptadas, completá tus datos profesionales." />
             <section className="bg-[var(--atlas-paper)] px-5 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
                 <div className="mx-auto max-w-[1440px]">
                     <RegistrationProgress activeStep={activeStep} />

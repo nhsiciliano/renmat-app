@@ -3,7 +3,7 @@ import { PageIntro, Reveal } from '@/components/AtlasPage'
 const page = () => {
     return (
         <>
-            <PageIntro eyebrow="Recursos científicos" title="Links de interés" description="Aquí podrás encontrar links a distintos sitios de interés con información sobre MAT y algunas herramientas virtuales de uso científico." />
+            <PageIntro title="Links de interés" description="Aquí podrás encontrar links a distintos sitios de interés con información sobre MAT y algunas herramientas virtuales de uso científico." />
             <section className="bg-white px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
                 <Reveal className="mx-auto max-w-[960px]">
                     <div className="overflow-hidden rounded-2xl border border-[var(--atlas-line)] bg-[var(--atlas-blue-soft)] px-6 py-16 text-center sm:px-12 sm:py-20">
@@ -13,8 +13,7 @@ const page = () => {
                             <circle cx="88" cy="35" r="9" fill="var(--atlas-ink)" stroke="none" />
                             <circle cx="165" cy="54" r="6" fill="var(--atlas-red)" stroke="none" />
                         </svg>
-                        <p className="mt-8 text-sm font-bold uppercase tracking-[0.13em] text-[var(--atlas-teal-dark)]">En preparación</p>
-                        <h2 className="mx-auto mt-3 max-w-[18ch] text-balance text-3xl font-extrabold tracking-[-0.025em] text-[var(--atlas-ink)] sm:text-4xl">Próximamente información útil</h2>
+                        <h2 className="mx-auto mt-8 max-w-[18ch] text-balance text-3xl font-extrabold tracking-[-0.025em] text-[var(--atlas-ink)] sm:text-4xl">Próximamente información útil</h2>
                     </div>
                 </Reveal>
             </section>

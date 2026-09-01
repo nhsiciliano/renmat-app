@@ -9,6 +9,7 @@ colors:
   atlas-blue: "#2f6fa3"
   atlas-blue-soft: "#dcebf4"
   atlas-teal: "#3f8e95"
+  atlas-teal-dark: "#286970"
   atlas-teal-soft: "#dceeed"
   atlas-red: "#a94b45"
   atlas-red-dark: "#843833"
@@ -134,6 +135,7 @@ La paleta moderniza el azul y el rojo institucionales mediante un teal de conexi
 ### Secondary
 
 - **Teal Clínico** (`atlas-teal`, #3f8e95): nodos y trayectorias que representan articulación entre profesionales y centros.
+- **Teal Clínico Oscuro** (`atlas-teal-dark`, #286970): etiquetas editoriales pequeñas sobre papel o blanco; conserva el carácter teal con contraste AA.
 - **Teal Clínico Suave** (`atlas-teal-soft`, #dceeed): selección de texto y feedback cromático liviano.
 
 ### Tertiary
@@ -231,7 +233,17 @@ La barra es sticky, blanca al 95% con blur y borde inferior. El logotipo real `/
 
 ### Accordion
 
-Cada fila se define por divisores, no por una tarjeta. El trigger ocupa todo el ancho, tiene una altura mínima de 4rem, texto de 1.25rem que crece a 1.5rem y un control circular Azul de Red Suave de 2.25rem. El signo más rota 45° cuando el panel está abierto; el contenido conserva un ancho máximo de 72ch.
+Cada fila se define por divisores, no por una tarjeta. El trigger ocupa todo el ancho, tiene una altura mínima de 4rem, texto de 1.25rem que crece a 1.5rem y un control circular Azul de Red Suave de 2.25rem. El signo más rota 45° cuando el panel está abierto; el contenido conserva un ancho máximo de 72ch. La expansión anima únicamente la altura y mantiene `aria-expanded`, `aria-controls` y una región rotulada.
+
+### Editorial Page Intro
+
+Las páginas interiores comienzan con una cabecera de Papel Luminoso, borde inferior y un contenedor de hasta 1440px. El `h1` escala con `clamp(2.5rem, 5vw, 4.7rem)` y el resumen se limita a 68ch; no se repite un kicker genérico sobre el título. La entrada desplaza 12px sin atenuar el texto, evitando pérdidas transitorias de contraste.
+
+### Registration Flow
+
+El proceso conserva dos pasos visibles como lista ordenada: condición actual en Rojo Óxido, completada con check y Teal Clínico Suave, y pendiente con borde Línea Cartográfica. Cada estado incluye texto —Actual, Completado o Pendiente— para no depender del color. El cambio de paso devuelve el foco al encabezado correspondiente.
+
+Los campos usan etiquetas persistentes, altura mínima de 3rem, borde Línea Cartográfica y errores en Rojo Óxido Profundo. El resumen de error se anuncia de forma asertiva y el éxito de forma cortés; un fallo conserva los valores. La acción de envío mantiene la jerarquía del botón primario.
 
 ### Access Tabs
 
@@ -254,6 +266,7 @@ El footer usa Azul Nocturno, tres columnas desde 768px y foco cyan. El logotipo 
 - **Do** usar el rojo óxido para decisiones primarias y reservar el teal para conexiones, nodos y feedback suave.
 - **Do** respetar `prefers-reduced-motion` y hacer que la firma de red se conecte una sola vez de forma sutil.
 - **Do** conservar navegación por teclado, semántica ARIA y objetivos interactivos de al menos 44px.
+- **Do** usar Teal Clínico Oscuro cuando el teal funciona como texto pequeño; reservar Teal Clínico para líneas, nodos y superficies gráficas.
 
 ### Don't:
 
@@ -262,3 +275,4 @@ El footer usa Azul Nocturno, tres columnas desde 768px y foco cyan. El logotipo 
 - **Don't** usar sombras en todas las superficies; la elevación sólo comunica función o superposición.
 - **Don't** reemplazar la figura territorial por decoración abstracta sin relación con la red clínica argentina.
 - **Don't** ocultar o debilitar los estados de foco en fondos claros u oscuros.
+- **Don't** animar la opacidad de texto legible; usar desplazamiento, recorte o expansión que mantenga el contraste.

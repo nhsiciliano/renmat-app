@@ -78,8 +78,8 @@ export default function Hero() {
     <section className="relative overflow-hidden px-5 pb-16 pt-12 sm:px-8 sm:pb-20 sm:pt-16 lg:px-12 lg:pb-24 lg:pt-20">
       <div className="mx-auto grid max-w-[1440px] items-center gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(500px,1.1fr)] lg:gap-16">
         <motion.div
-          initial={{ opacity: 0.72, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 14 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-[720px]"
         >
@@ -109,8 +109,8 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0.78, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 18 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.85, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
         >
           <NetworkFigure />

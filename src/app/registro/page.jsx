@@ -38,7 +38,6 @@ export default function RegistroPage() {
     return (
         <>
             <PageIntro
-                eyebrow="Registro nacional"
                 title="Información sobre el Registro"
                 description="Objetivos, alcance y soporte tecnológico de una red orientada a comprender mejor las Microangiopatías Trombóticas en Argentina."
             />

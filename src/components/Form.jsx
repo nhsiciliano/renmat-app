@@ -118,8 +118,7 @@ export default function FormSec() {
         <section aria-labelledby="registration-form-title" className="mx-auto max-w-[1180px]">
             <div className="grid gap-10 lg:grid-cols-[minmax(300px,0.65fr)_minmax(0,1.35fr)] lg:gap-16">
                 <div>
-                    <p className="text-sm font-bold uppercase tracking-[0.13em] text-[var(--atlas-teal-dark)]">Datos profesionales</p>
-                    <h2 id="registration-form-title" tabIndex={-1} className="mt-3 text-3xl font-extrabold tracking-[-0.025em] text-[var(--atlas-ink)] sm:text-4xl">Formulario de registro</h2>
+                    <h2 id="registration-form-title" tabIndex={-1} className="text-3xl font-extrabold tracking-[-0.025em] text-[var(--atlas-ink)] sm:text-4xl">Formulario de registro</h2>
                     <p className="mt-5 text-lg leading-relaxed text-[var(--atlas-ink-soft)]">Completá el formulario con todos los datos solicitados y seleccioná Registrarse.</p>
                     <p className="mt-5 text-lg leading-relaxed text-[var(--atlas-ink-soft)]">Si tenés alguna duda sobre los datos de registro, escribinos a <a className="font-bold text-[var(--atlas-ink)] underline decoration-[var(--atlas-line)] underline-offset-4 hover:decoration-[var(--atlas-ink)]" href="mailto:registroargmat@gmail.com">registroargmat@gmail.com</a>.</p>
                     <p className="mt-6 border-l-2 border-[var(--atlas-red)] pl-4 text-[var(--atlas-ink-soft)]"><strong className="text-[var(--atlas-ink)]">Importante:</strong> Todos los campos son requeridos para el registro.</p>
@@ -132,7 +131,7 @@ export default function FormSec() {
                         role={submitMessage?.type === 'error' ? 'alert' : 'status'}
                         aria-live={submitMessage?.type === 'error' ? 'assertive' : 'polite'}
                         aria-atomic="true"
-                        className={`mb-5 min-h-6 rounded-xl px-4 py-3 text-sm font-semibold ${submitMessage ? (submitMessage.type === 'success' ? 'bg-[var(--atlas-teal-soft)] text-[var(--atlas-ink)]' : 'bg-[#f5e5e3] text-[var(--atlas-red-dark)]') : 'sr-only'}`}
+                        className={`mb-5 min-h-6 rounded-xl px-4 py-3 text-sm font-semibold ${submitMessage ? (submitMessage.type === 'success' ? 'bg-[var(--atlas-teal-soft)] text-[var(--atlas-ink)]' : 'border border-[var(--atlas-red)] bg-[var(--atlas-paper)] text-[var(--atlas-red-dark)]') : 'sr-only'}`}
                     >
                         {submitMessage?.text}
                     </div>
