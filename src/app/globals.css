@@ -3,10 +3,22 @@
 @tailwind utilities;
 
 :root {
-  --bg: white;
-  --textColor: black;
-  --softBg: #f0f0f0;
-  --softTextColor: #626262;
+  --atlas-paper: #f7fafc;
+  --atlas-white: #ffffff;
+  --atlas-ink: #0b2b4b;
+  --atlas-ink-soft: #36536c;
+  --atlas-blue: #2f6fa3;
+  --atlas-blue-soft: #dcebf4;
+  --atlas-teal: #3f8e95;
+  --atlas-teal-soft: #dceeed;
+  --atlas-red: #a94b45;
+  --atlas-red-dark: #843833;
+  --atlas-line: #cbdbe5;
+  --atlas-footer: #08243d;
+  --bg: var(--atlas-paper);
+  --textColor: var(--atlas-ink);
+  --softBg: #edf4f7;
+  --softTextColor: var(--atlas-ink-soft);
 }
 
 * {
@@ -17,7 +29,38 @@
 
 
 body {
+  min-width: 320px;
+  background: var(--atlas-paper);
+  color: var(--atlas-ink);
   overflow-wrap: break-word;
+  accent-color: var(--atlas-red);
+}
+
+::selection {
+  background: var(--atlas-teal-soft);
+  color: var(--atlas-ink);
+}
+
+html {
+  scrollbar-color: var(--atlas-blue) var(--atlas-paper);
+}
+
+* {
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 0.75rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--atlas-paper);
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 0.2rem solid var(--atlas-paper);
+  border-radius: 999px;
+  background: var(--atlas-blue);
 }
 
 a {
@@ -32,7 +75,7 @@ a {
   z-index: 100;
   transform: translateY(-150%);
   border-radius: 0 0 0.5rem 0.5rem;
-  background: #1e3a8a;
+  background: var(--atlas-ink);
   color: white;
   padding: 0.75rem 1rem;
   font-weight: 700;
@@ -44,8 +87,16 @@ a {
 }
 
 :focus-visible {
-  outline: 3px solid #1e3a8a;
+  outline: 3px solid var(--atlas-blue);
   outline-offset: 3px;
+}
+
+.focus-on-dark :focus-visible {
+  outline-color: #9fd7da;
+}
+
+.focus-on-dark .focus-on-light :focus-visible {
+  outline-color: var(--atlas-blue);
 }
 
 :focus,

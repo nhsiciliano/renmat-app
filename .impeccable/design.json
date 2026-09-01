@@ -1,0 +1,284 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-01T13:19:41Z",
+  "title": "Design System: RegArMAT",
+  "extensions": {
+    "colorMeta": {
+      "atlas-paper": {
+        "role": "neutral",
+        "displayName": "Papel Luminoso",
+        "canonical": "#f7fafc",
+        "tonalRamp": ["#152a38", "#264b64", "#366c91", "#498dbb", "#76a9cc", "#a2c5dc", "#cfe1ed", "#ecf3f8"]
+      },
+      "atlas-white": {
+        "role": "neutral",
+        "displayName": "Blanco de Superficie",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#262626", "#454545", "#636363", "#828282", "#a1a1a1", "#bfbfbf", "#dedede", "#f2f2f2"]
+      },
+      "atlas-ink": {
+        "role": "primary",
+        "displayName": "Tinta de Atlas",
+        "canonical": "#0b2b4b",
+        "tonalRamp": ["#0a2643", "#124578", "#1963ad", "#2582df", "#5aa1e7", "#90bfef", "#c5def7", "#e9f2fc"]
+      },
+      "atlas-ink-soft": {
+        "role": "neutral",
+        "displayName": "Tinta Suave",
+        "canonical": "#36536c",
+        "tonalRamp": ["#192733", "#2e475c", "#426685", "#5885ac", "#81a3c0", "#aac1d5", "#d3dfe9", "#eef3f6"]
+      },
+      "atlas-blue": {
+        "role": "primary",
+        "displayName": "Azul de Red",
+        "canonical": "#2f6fa3",
+        "tonalRamp": ["#11283b", "#1f496b", "#2d699a", "#3d89c7", "#6da6d5", "#9cc3e2", "#cce0f0", "#ebf3f9"]
+      },
+      "atlas-blue-soft": {
+        "role": "primary",
+        "displayName": "Azul de Red Suave",
+        "canonical": "#dcebf4",
+        "tonalRamp": ["#122b3a", "#214e69", "#307097", "#4192c3", "#6fadd2", "#9ec8e1", "#cde2ef", "#ecf4f9"]
+      },
+      "atlas-teal": {
+        "role": "secondary",
+        "displayName": "Teal Clínico",
+        "canonical": "#3f8e95",
+        "tonalRamp": ["#173336", "#295c61", "#3b858c", "#4facb5", "#7ac1c7", "#a5d5d9", "#d0e9eb", "#edf7f7"]
+      },
+      "atlas-teal-soft": {
+        "role": "secondary",
+        "displayName": "Teal Clínico Suave",
+        "canonical": "#dceeed",
+        "tonalRamp": ["#193332", "#2d5d5a", "#418682", "#57ada8", "#80c1be", "#a9d5d3", "#d2e9e8", "#eef7f6"]
+      },
+      "atlas-red": {
+        "role": "tertiary",
+        "displayName": "Rojo Óxido",
+        "canonical": "#a94b45",
+        "tonalRamp": ["#361816", "#622b28", "#8d3f3a", "#b7544e", "#c87e79", "#daa8a4", "#ecd2d0", "#f8eeed"]
+      },
+      "atlas-red-dark": {
+        "role": "tertiary",
+        "displayName": "Rojo Óxido Profundo",
+        "canonical": "#843833",
+        "tonalRamp": ["#371715", "#632a26", "#8f3d37", "#b9524b", "#ca7c77", "#dba7a3", "#edd1cf", "#f8eded"]
+      },
+      "atlas-line": {
+        "role": "neutral",
+        "displayName": "Línea Cartográfica",
+        "canonical": "#cbdbe5",
+        "tonalRamp": ["#192933", "#2e4a5c", "#426b85", "#588cac", "#81a8c0", "#aac4d4", "#d3e0e9", "#eef3f6"]
+      },
+      "atlas-footer": {
+        "role": "neutral",
+        "displayName": "Azul Nocturno",
+        "canonical": "#08243d",
+        "tonalRamp": ["#092844", "#10487a", "#1768b0", "#2287e2", "#58a5e9", "#8ec2f0", "#c4dff7", "#e8f3fc"]
+      },
+      "surface-soft": {
+        "role": "neutral",
+        "displayName": "Superficie Neblina",
+        "canonical": "#edf4f7",
+        "tonalRamp": ["#182c35", "#2a4f5f", "#3d738a", "#5295b2", "#7cafc5", "#a7c9d8", "#d1e3eb", "#edf4f7"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Título principal del hero, limitado a 14ch."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Encabezados editoriales de las secciones principales."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Título de contenido dentro del panel de acceso."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto explicativo y contenido desplegable de lectura clínica."
+      },
+      "action": {
+        "displayName": "Action",
+        "purpose": "Botones y pestañas con peso enfático."
+      },
+      "navigation": {
+        "displayName": "Navigation",
+        "purpose": "Enlaces compactos de la navegación de escritorio."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Encabezados uppercase de columnas institucionales."
+      }
+    },
+    "shadows": [
+      {
+        "name": "network-figure",
+        "value": "0 22px 55px rgba(11,43,75,0.12)",
+        "purpose": "Elevar la figura territorial sobre el papel."
+      },
+      {
+        "name": "access-panel",
+        "value": "0 24px 60px rgba(3,17,29,0.28)",
+        "purpose": "Separar el panel blanco de la sección azul marino."
+      },
+      {
+        "name": "primary-action",
+        "value": "0 10px 24px rgba(132,56,51,0.20)",
+        "purpose": "Dar presencia contenida a la acción primaria."
+      },
+      {
+        "name": "mobile-menu",
+        "value": "0 14px 30px rgba(11,43,75,0.09)",
+        "purpose": "Confirmar la superposición temporal del menú móvil."
+      }
+    ],
+    "motion": [
+      {
+        "name": "motion-default",
+        "value": "0.55s cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Transición predeterminada de MotionConfig; respeta reducedMotion=user."
+      },
+      {
+        "name": "network-connect",
+        "value": "1.1s cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Dibujar las conexiones territoriales una sola vez, con demoras de 0.12s a 0.25s."
+      },
+      {
+        "name": "hero-copy-enter",
+        "value": "0.7s cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Aparecer el mensaje del hero desde un desplazamiento vertical de 14px."
+      },
+      {
+        "name": "hero-figure-enter",
+        "value": "0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.08s",
+        "purpose": "Aparecer la figura desde un desplazamiento vertical de 18px."
+      },
+      {
+        "name": "mobile-menu-reveal",
+        "value": "0.24s cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Revelar o cerrar el menú móvil mediante opacidad, traslación y clip-path."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal para solicitar registro o entrar al flujo elegido.",
+      "html": "<button class=\"ds-btn-primary\">Solicitar registro <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14m-5-5 5 5-5 5\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; min-height: 3rem; align-items: center; justify-content: center; gap: 0.5rem; border: 0; border-radius: 0.75rem; background: #a94b45; color: #ffffff; padding: 0.75rem 1.5rem; font-family: \"Sofia Sans\", sans-serif; font-size: 1rem; font-weight: 700; box-shadow: 0 10px 24px rgba(132,56,51,0.20); cursor: pointer; transition: background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-primary:hover { background: #843833; } .ds-btn-primary:focus-visible { outline: 3px solid #2f6fa3; outline-offset: 3px; } .ds-btn-primary:active { background: #843833; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Acción informativa secundaria sobre una superficie clara.",
+      "html": "<button class=\"ds-btn-secondary\">Conocer el registro</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; min-height: 3rem; align-items: center; justify-content: center; border: 1px solid #cbdbe5; border-radius: 0.75rem; background: #ffffff; color: #0b2b4b; padding: 0.75rem 1.5rem; font-family: \"Sofia Sans\", sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-secondary:hover { background: #dcebf4; } .ds-btn-secondary:focus-visible { outline: 3px solid #2f6fa3; outline-offset: 3px; } .ds-btn-secondary:active { background: #dcebf4; }"
+    },
+    {
+      "name": "Desktop Navigation Link",
+      "kind": "nav",
+      "description": "Enlace compacto de navegación con línea roja para el estado actual.",
+      "html": "<a class=\"ds-nav-link\" href=\"#\" aria-current=\"page\">Registro<span aria-hidden=\"true\"></span></a>",
+      "css": ".ds-nav-link { position: relative; display: inline-flex; min-height: 2.75rem; align-items: center; border-radius: 0.375rem; padding: 0 0.25rem; color: #36536c; font-family: \"Sofia Sans\", sans-serif; font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-nav-link span { position: absolute; right: 0.25rem; bottom: 0.25rem; left: 0.25rem; height: 2px; border-radius: 9999px; background: #a94b45; transform: scaleX(0); transition: transform 200ms cubic-bezier(0.4,0,0.2,1); } .ds-nav-link:hover { color: #0b2b4b; } .ds-nav-link:hover span, .ds-nav-link[aria-current=\"page\"] span { transform: scaleX(1); } .ds-nav-link:focus-visible { outline: 3px solid #2f6fa3; outline-offset: 3px; }"
+    },
+    {
+      "name": "Mobile Menu Toggle",
+      "kind": "button",
+      "description": "Control táctil de 44px para abrir la navegación por debajo de 1280px.",
+      "html": "<button class=\"ds-menu-toggle\" type=\"button\" aria-label=\"Abrir menú de navegación\" aria-expanded=\"false\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M4 7h16M4 12h16M4 17h16\"/></svg></button>",
+      "css": ".ds-menu-toggle { display: inline-flex; width: 2.75rem; height: 2.75rem; align-items: center; justify-content: center; border: 1px solid #cbdbe5; border-radius: 0.75rem; background: #ffffff; color: #0b2b4b; cursor: pointer; transition: background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-menu-toggle:hover { background: #dcebf4; } .ds-menu-toggle:focus-visible { outline: 3px solid #2f6fa3; outline-offset: 3px; } .ds-menu-toggle:active { background: #dcebf4; }"
+    },
+    {
+      "name": "Accordion Trigger",
+      "kind": "custom",
+      "description": "Fila editorial delimitada por líneas con un indicador circular rotatorio.",
+      "html": "<button class=\"ds-accordion-trigger\" type=\"button\" aria-expanded=\"true\"><span>¿A quién está dirigido el registro?</span><span class=\"ds-accordion-icon\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M12 5v14M5 12h14\"/></svg></span></button>",
+      "css": ".ds-accordion-trigger { display: flex; width: 100%; min-height: 4rem; align-items: center; justify-content: space-between; gap: 1.5rem; border: 0; border-top: 1px solid #cbdbe5; border-bottom: 1px solid #cbdbe5; border-radius: 0.375rem; background: #ffffff; color: #0b2b4b; padding: 1.25rem 0; font-family: \"Sofia Sans\", sans-serif; font-size: 1.5rem; font-weight: 700; text-align: left; cursor: pointer; transition: color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-accordion-trigger:hover { color: #2f6fa3; } .ds-accordion-trigger:focus-visible { outline: 3px solid #2f6fa3; outline-offset: 3px; } .ds-accordion-icon { display: flex; width: 2.25rem; height: 2.25rem; flex: 0 0 auto; align-items: center; justify-content: center; border-radius: 9999px; background: #dcebf4; color: #0b2b4b; transition: transform 150ms cubic-bezier(0.4,0,0.2,1); } .ds-accordion-trigger[aria-expanded=\"true\"] .ds-accordion-icon { transform: rotate(45deg); }"
+    },
+    {
+      "name": "Access Tabs",
+      "kind": "custom",
+      "refersTo": "tab-selected",
+      "description": "Selector de dos etapas dentro del panel blanco de acceso.",
+      "html": "<div class=\"ds-tabs\" role=\"tablist\" aria-label=\"Opciones de acceso\"><button role=\"tab\" aria-selected=\"true\">Quiero registrarme</button><button role=\"tab\" aria-selected=\"false\">Ya estoy registrado</button></div>",
+      "css": ".ds-tabs { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0.5rem; border-radius: 1rem; background: #ffffff; padding: 0.75rem; box-shadow: 0 24px 60px rgba(3,17,29,0.28); } .ds-tabs button { min-height: 3rem; border: 0; border-radius: 0.75rem; background: transparent; color: #36536c; padding: 0.75rem 1rem; font-family: \"Sofia Sans\", sans-serif; font-size: 1rem; font-weight: 700; text-align: left; cursor: pointer; transition: color 150ms cubic-bezier(0.4,0,0.2,1), background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-tabs button[aria-selected=\"true\"] { background: #dcebf4; color: #0b2b4b; } .ds-tabs button:hover { background: #f7fafc; color: #0b2b4b; } .ds-tabs button[aria-selected=\"true\"]:hover { background: #dcebf4; } .ds-tabs button:focus-visible { outline: 3px solid #2f6fa3; outline-offset: 3px; }"
+    },
+    {
+      "name": "Network Figure",
+      "kind": "custom",
+      "refersTo": "network-card",
+      "description": "Firma territorial conceptual de la red nacional RegArMAT.",
+      "html": "<figure class=\"ds-network-card\"><div class=\"ds-network-head\"><strong>Red nacional</strong><span>Representación conceptual</span></div><svg viewBox=\"0 0 580 500\" role=\"img\" aria-labelledby=\"ds-network-title ds-network-desc\"><title id=\"ds-network-title\">Atlas conceptual de la red RegArMAT</title><desc id=\"ds-network-desc\">Nodos profesionales y centros de salud conectados con un registro estructurado.</desc><rect width=\"580\" height=\"500\" fill=\"#f7fafc\"/><path d=\"M293 38c31 12 51 39 47 70-3 24 13 42 8 66-6 31-31 45-25 79 4 25-9 44-5 70 3 20-12 35-20 53-9 20-5 47-22 69-8 11-19 18-28 17-12-2-7-20-14-33-10-20-4-42-1-62 4-24-10-40-6-64 4-25 18-43 14-68-4-27-21-47-12-76 9-23 31-37 31-65 0-26 12-50 33-56Z\" fill=\"#eaf3f6\" stroke=\"#cbdbe5\" stroke-width=\"2\"/><g fill=\"none\" stroke-linecap=\"round\"><path d=\"M116 122C190 120 230 135 290 181S393 248 471 219\" stroke=\"#2f6fa3\" stroke-width=\"2.5\"/><path d=\"M92 317c76-15 139-14 199 14s96 43 177 27\" stroke=\"#3f8e95\" stroke-width=\"2.5\"/><path d=\"M183 69c40 67 58 116 68 184s20 120 3 190\" stroke=\"#a94b45\" stroke-width=\"2.2\"/><path d=\"M428 93c-72 52-102 89-122 156s-36 116-92 163\" stroke=\"#8fb8c1\" stroke-width=\"1.8\" stroke-dasharray=\"5 8\"/></g><g><circle cx=\"183\" cy=\"69\" r=\"7\" fill=\"#a94b45\"/><circle cx=\"116\" cy=\"122\" r=\"7\" fill=\"#2f6fa3\"/><circle cx=\"290\" cy=\"181\" r=\"10\" fill=\"#0b2b4b\"/><circle cx=\"428\" cy=\"93\" r=\"7\" fill=\"#3f8e95\"/><circle cx=\"471\" cy=\"219\" r=\"7\" fill=\"#2f6fa3\"/><circle cx=\"92\" cy=\"317\" r=\"7\" fill=\"#3f8e95\"/><circle cx=\"291\" cy=\"331\" r=\"10\" fill=\"#0b2b4b\"/><circle cx=\"468\" cy=\"358\" r=\"7\" fill=\"#a94b45\"/><circle cx=\"254\" cy=\"443\" r=\"7\" fill=\"#3f8e95\"/></g></svg><figcaption>Una red de profesionales y centros de salud de distintas provincias, articulada mediante RegArMAT.</figcaption></figure>",
+      "css": ".ds-network-card { width: min(100%,620px); overflow: hidden; margin: 0; border-radius: 1rem; background: #ffffff; color: #0b2b4b; font-family: \"Sofia Sans\", sans-serif; box-shadow: 0 22px 55px rgba(11,43,75,0.12); } .ds-network-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: 1px solid #cbdbe5; padding: 1rem 1.5rem; } .ds-network-head strong { font-weight: 700; } .ds-network-head span { color: #36536c; font-size: 0.875rem; font-weight: 600; } .ds-network-card svg { display: block; width: 100%; height: auto; } .ds-network-card figcaption { border-top: 1px solid #cbdbe5; padding: 1rem 1.5rem; color: #36536c; font-size: 0.875rem; line-height: 1.625; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Atlas de la red clínica",
+    "overview": "RegArMAT se presenta como una red nacional de conocimiento clínico. Su mundo visual es un atlas científico argentino: papel luminoso, trazos topológicos, nodos clínicos y una paleta de azul marino, teal y rojo óxido. La composición es minimalista, profesional y científica; evita la portada sanitaria genérica basada en fotografías de laboratorio y mosaicos de tarjetas.\n\nLa interfaz privilegia jerarquías grandes, navegación compacta, superficies claras y acciones inequívocas. El primer recorrido comunica propósito, comunidad convocada y las dos decisiones operativas —solicitar acceso o entrar a REDCap— mientras la figura territorial conceptual convierte la red en una firma reconocible. El movimiento es sutil y funcional: la red se conecta una vez y el resto de los estados responde sin espectáculo.",
+    "keyCharacteristics": [
+      "Papel casi blanco y superficies blancas como campo editorial.",
+      "Azul marino para estructura y confianza; teal para conexión; rojo óxido para acción.",
+      "Titulares densos en Sofia Sans, texto de lectura amplio y límites de línea explícitos.",
+      "Topología territorial, nodos y divisores finos en lugar de fotografía clínica decorativa.",
+      "Foco azul o cyan claramente visible y reducción de movimiento respetada."
+    ],
+    "rules": [
+      {
+        "name": "La regla del atlas",
+        "body": "El azul marino organiza, el teal conecta y el rojo óxido invita a actuar; no intercambiar sus roles por preferencia decorativa.",
+        "section": "colors"
+      },
+      {
+        "name": "La regla del papel",
+        "body": "El campo principal permanece luminoso y frío. Las superficies oscuras se reservan para acceso y cierre institucional.",
+        "section": "colors"
+      },
+      {
+        "name": "La regla de una sola voz",
+        "body": "Usar Sofia Sans en toda la experiencia; construir jerarquía con peso 400/600/700/800 y escala, no con fuentes ornamentales.",
+        "section": "typography"
+      },
+      {
+        "name": "La regla de lectura clínica",
+        "body": "Mantener párrafos amplios con interlineado 1.625 y límites de línea explícitos; no estirar texto médico a todo el ancho disponible.",
+        "section": "typography"
+      },
+      {
+        "name": "La regla de respiración editorial",
+        "body": "Mantener bloques grandes y pocos, separados por ritmo vertical y cambios tonales; no fragmentar el contenido en una cuadrícula de tarjetas pequeñas.",
+        "section": "layout"
+      },
+      {
+        "name": "La regla de elevación funcional",
+        "body": "Una sombra debe explicar superposición, prioridad o separación de superficies; nunca decorar texto o divisores.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** preservar `/logoregarmat.png`, su proporción y el reconocimiento institucional de RegArMAT.",
+      "**Do** mantener Azul de Red para foco visible sobre claro y cyan `#9fd7da` sobre oscuro, con outline de 3px y offset de 3px.",
+      "**Do** usar el rojo óxido para decisiones primarias y reservar el teal para conexiones, nodos y feedback suave.",
+      "**Do** respetar `prefers-reduced-motion` y hacer que la firma de red se conecte una sola vez de forma sutil.",
+      "**Do** conservar navegación por teclado, semántica ARIA y objetivos interactivos de al menos 44px."
+    ],
+    "donts": [
+      "**Don't** volver a una portada sanitaria genérica de fotografía de laboratorio y mosaicos de tarjetas.",
+      "**Don't** inventar nuevas familias tipográficas, gradientes o acentos que desplacen la paleta atlas existente.",
+      "**Don't** usar sombras en todas las superficies; la elevación sólo comunica función o superposición.",
+      "**Don't** reemplazar la figura territorial por decoración abstracta sin relación con la red clínica argentina.",
+      "**Don't** ocultar o debilitar los estados de foco en fondos claros u oscuros."
+    ]
+  }
+}
