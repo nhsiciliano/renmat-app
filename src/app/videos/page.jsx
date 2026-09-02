@@ -1,5 +1,5 @@
+import { PageIntro, Reveal } from '@/components/AtlasPage'
 import YouTubeVideo from '@/components/youtubevideo/YouTubeVideo'
-import React from 'react'
 
 const page = () => {
 
@@ -31,25 +31,28 @@ const page = () => {
     ]
 
     return (
-        <div className='bg-blue-50 px-10 py-5 lg:px-20 lg:py-10'>
-            <h2 className='text-xl lg:text-2xl text-red-800 mx-5 my-3'>Videos sobre MAT</h2>
-            <hr className='border-red-800 mx-5' />
-            <br />
-            <p className='p-6 text-xl'>Aquí encontrarás videos de nuestro canal de YouTube con mucha información sobre MAT
-                y temas relacionados.
-            </p>
-            <div className='flex flex-wrap gap-5 p-3 mt-5'>
+        <>
+            <PageIntro title="Videos sobre MAT" description="Aquí encontrarás videos de nuestro canal de YouTube con mucha información sobre MAT y temas relacionados." />
+            <section className="bg-white px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+                <Reveal className="mx-auto max-w-[1440px]">
+                    <div className="grid gap-x-6 gap-y-10 md:grid-cols-2">
                 {
-                    idVideo.map((item, index) => (
-                        <div className='basis-full lg:basis-5/12 m-auto' key={index}>
-                        <YouTubeVideo
-                            videoId={item.hush}
-                        />
-                    </div>
+                    idVideo.map((item) => (
+                        <article className="min-w-0" key={item.id}>
+                            <div className="mb-4 flex items-center gap-3">
+                                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--atlas-blue-soft)] text-sm font-extrabold text-[var(--atlas-ink)]">{String(item.id).padStart(2, '0')}</span>
+                                <h2 className="text-lg font-bold text-[var(--atlas-ink)]">Video sobre Microangiopatías Trombóticas {item.id}</h2>
+                            </div>
+                            <div className="overflow-hidden rounded-2xl border border-[var(--atlas-line)] bg-[var(--atlas-ink)] shadow-[0_18px_45px_rgba(11,43,75,0.10)]">
+                                <YouTubeVideo videoId={item.hush} title={`Video sobre Microangiopatías Trombóticas ${item.id}`} />
+                            </div>
+                        </article>
                     ))
                 }
-            </div>
-        </div>
+                    </div>
+                </Reveal>
+            </section>
+        </>
     )
 }
 

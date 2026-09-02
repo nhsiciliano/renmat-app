@@ -1,192 +1,148 @@
 "use client"
 
-import React from 'react'
+import emailjs from '@emailjs/browser'
 import { useFormik } from 'formik'
+import { useRef, useState } from 'react'
 import * as yup from 'yup'
-import emailjs from '@emailjs/browser';
-import Swal from 'sweetalert2'
-import { Input, Button } from "@material-tailwind/react";
+
+const fields = [
+    { name: 'nombre', label: 'Nombre', autoComplete: 'given-name' },
+    { name: 'apellido', label: 'Apellido', autoComplete: 'family-name' },
+    { name: 'email', label: 'Email', type: 'email', autoComplete: 'email' },
+    { name: 'telefono', label: 'Teléfono', type: 'tel', inputMode: 'tel', autoComplete: 'tel' },
+    { name: 'profesion', label: 'Profesión', autoComplete: 'organization-title' },
+    { name: 'provincia', label: 'Provincia', autoComplete: 'address-level1' },
+    { name: 'ciudad', label: 'Ciudad', autoComplete: 'address-level2' },
+    { name: 'instituto', label: 'Institución donde trabaja', autoComplete: 'organization' },
+]
+
+const validationSchema = yup.object().shape({
+    nombre: yup.string().trim().required('Ingresá tu nombre.'),
+    apellido: yup.string().trim().required('Ingresá tu apellido.'),
+    email: yup.string().trim().email('Ingresá un correo electrónico válido.').required('Ingresá tu correo electrónico.'),
+    telefono: yup.string().trim().matches(/^[0-9+()\-\s]{6,30}$/, 'Ingresá un teléfono válido usando números, espacios, paréntesis, + o guiones.').required('Ingresá tu teléfono.'),
+    profesion: yup.string().trim().required('Ingresá tu profesión.'),
+    provincia: yup.string().trim().required('Ingresá tu provincia.'),
+    ciudad: yup.string().trim().required('Ingresá tu ciudad.'),
+    instituto: yup.string().trim().required('Ingresá la institución donde trabajás.'),
+})
+
+function RegistrationField({ formik, field }) {
+    const { name, label, type = 'text', inputMode, autoComplete } = field
+    const showError = formik.touched[name] && Boolean(formik.errors[name])
+    const errorId = `${name}-error`
+
+    return (
+        <div className="min-w-0">
+            <label htmlFor={name} className="mb-2 block text-sm font-bold text-[var(--atlas-ink)]">
+                {label} <span aria-hidden="true" className="text-[var(--atlas-red)]">*</span>
+            </label>
+            <input
+                id={name}
+                name={name}
+                type={type}
+                inputMode={inputMode}
+                autoComplete={autoComplete}
+                value={formik.values[name]}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                required
+                aria-invalid={showError ? 'true' : undefined}
+                aria-describedby={showError ? errorId : undefined}
+                className={`min-h-12 w-full rounded-xl border bg-white px-4 py-3 text-base text-[var(--atlas-ink)] transition-colors placeholder:text-[var(--atlas-ink-soft)] ${showError ? 'border-[var(--atlas-red)]' : 'border-[var(--atlas-line)] hover:border-[var(--atlas-blue)]'}`}
+            />
+            <div className="min-h-7 pt-2">
+                {showError && <p id={errorId} role="alert" className="text-sm font-semibold text-[var(--atlas-red-dark)]">{formik.errors[name]}</p>}
+            </div>
+        </div>
+    )
+}
 
 export default function FormSec() {
-
-    const validationSchema = yup.object().shape({
-        nombre: yup.string().required('El nombre es requerido'),
-        apellido: yup.string().required('El apellido es requerido'),
-        email: yup.string().email('Ingresa un correo válido').required('El correo es requerido'),
-        telefono: yup.number().typeError('Por favor ingrese un número válido').required('El teléfono es requerido'),
-        profesion: yup.string().required('La profesión es requerida'),
-        provincia: yup.string().required('La provincia es requerida'),
-        ciudad: yup.string().required('La ciudad es requerida'),
-        instituto: yup.string().required('La institución donde trabaja es requerida'),
-    });
+    const [submitMessage, setSubmitMessage] = useState(null)
+    const messageRef = useRef(null)
 
     const formik = useFormik({
         initialValues: {
-            nombre: '',
-            apellido: '',
-            email: '',
-            telefono: '',
-            profesion: '',
-            provincia: '',
-            ciudad: '',
-            instituto: ''
+            nombre: '', apellido: '', email: '', telefono: '',
+            profesion: '', provincia: '', ciudad: '', instituto: '',
         },
-        validationSchema: validationSchema,
-        onSubmit: (values, { setSubmitting, resetForm }) => {
+        validationSchema,
+        onSubmit: async (values, { setSubmitting, resetForm }) => {
+            setSubmitMessage(null)
+
             try {
-                emailjs
-                    .send(process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID, process.env.NEXT_PUBLIC_EMAIL_TEMPLE_ID, values, process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY)
-                    .then((result) => {
-                        console.log(result.text);
-                        Swal.fire({
-                            title: 'Registro completo',
-                            text: 'Tu registro fue exitoso. Nos pondremos en contacto contigo via email para facilitarte las credenciales de acceso a redcap.',
-                            icon: 'success',
-                            position: 'top',
-                            confirmButtonColor: '#A50104',
-                        });
-                        setSubmitting(false);
-                        resetForm();
-                    }, (error) => {
-                        console.log(error.text);
-                    })
+                await emailjs.send(
+                    process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID,
+                    process.env.NEXT_PUBLIC_EMAIL_TEMPLE_ID,
+                    values,
+                    process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY,
+                )
+                resetForm()
+                setSubmitMessage({
+                    type: 'success',
+                    text: 'Tu registro fue exitoso. Nos pondremos en contacto contigo vía email para facilitarte las credenciales de acceso a REDCap.',
+                })
+                requestAnimationFrame(() => messageRef.current?.focus())
             } catch (error) {
-                console.log(error, "Error de registro");
-                alert("Hubo un problema con el registro, por favor intente de nuevo más tarde");
+                console.error('Error al enviar el registro', error)
+                setSubmitMessage({
+                    type: 'error',
+                    text: 'No pudimos enviar el registro. Conservamos los datos ingresados para que puedas intentarlo nuevamente.',
+                })
+                requestAnimationFrame(() => messageRef.current?.focus())
+            } finally {
+                setSubmitting(false)
             }
-        }
+        },
     })
 
+    const handleAccessibleSubmit = async (event) => {
+        event.preventDefault()
+        setSubmitMessage(null)
+
+        const errors = await formik.validateForm()
+        const invalidFields = Object.keys(errors)
+
+        if (invalidFields.length > 0) {
+            formik.setTouched(invalidFields.reduce((touched, field) => ({ ...touched, [field]: true }), {}), false)
+            setSubmitMessage({ type: 'error', text: 'Revisá los campos marcados antes de enviar el registro.' })
+            requestAnimationFrame(() => document.getElementById(invalidFields[0])?.focus())
+            return
+        }
+
+        await formik.submitForm()
+    }
+
     return (
-        <div className='p-1 lg:p-6 mt-6 flex-column lg:flex gap-5'>
-            <div className='p-1 text-xl text-center flex-column lg:flex-auto lg:w-32 m-1 lg:m-auto'>
-                <h3>Por favor complete el formulario correspondiente con todos
-                    los datos solicitados y haga click en registrarse.</h3>
-                <br />
-                <h3>Si tiene alguna duda con respecto a los datos de registro puede enviarnos
-                    un email a registroargmat@gmail.com.
-                </h3>
-                <br />
-                <h3><span className='text-red-900'>IMPORTANTE</span>: Todos los campos son requeridos para el registro.</h3>
-                <br />
-            </div>
-            <div className='p-2 border-2 border-blue-800 rounded-md lg:flex-auto lg:w-64'>
-                <form onSubmit={formik.handleSubmit}>
-                    <div className='flex-column lg:flex gap-2 p-1'>
-                        <div className='w-full mb-2 lg:mb-0'>
-                            <Input
-                                id='nombre'
-                                name='nombre'
-                                label='Nombre'
-                                color='blue'
-                                value={formik.values.nombre}
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                                error={formik.touched.nombre && Boolean(formik.errors.nombre)}
-                                helperText={formik.touched.nombre && formik.errors.nombre}
-                            />
-                        </div>
-                        <div className='w-full'>
-                            <Input
-                                id='apellido'
-                                name='apellido'
-                                label='Apellido'
-                                color='blue'
-                                value={formik.values.apellido}
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                                error={formik.touched.apellido && Boolean(formik.errors.apellido)}
-                                helperText={formik.touched.apellido && formik.errors.apellido}
-                            />
-                        </div>
+        <section aria-labelledby="registration-form-title" className="mx-auto max-w-[1180px]">
+            <div className="grid gap-10 lg:grid-cols-[minmax(300px,0.65fr)_minmax(0,1.35fr)] lg:gap-16">
+                <div>
+                    <h2 id="registration-form-title" tabIndex={-1} className="text-3xl font-extrabold tracking-[-0.025em] text-[var(--atlas-ink)] sm:text-4xl">Formulario de registro</h2>
+                    <p className="mt-5 text-lg leading-relaxed text-[var(--atlas-ink-soft)]">Completá el formulario con todos los datos solicitados y seleccioná Registrarse.</p>
+                    <p className="mt-5 text-lg leading-relaxed text-[var(--atlas-ink-soft)]">Si tenés alguna duda sobre los datos de registro, escribinos a <a className="font-bold text-[var(--atlas-ink)] underline decoration-[var(--atlas-line)] underline-offset-4 hover:decoration-[var(--atlas-ink)]" href="mailto:registroargmat@gmail.com">registroargmat@gmail.com</a>.</p>
+                    <p className="mt-6 border-l-2 border-[var(--atlas-red)] pl-4 text-[var(--atlas-ink-soft)]"><strong className="text-[var(--atlas-ink)]">Importante:</strong> Todos los campos son requeridos para el registro.</p>
+                </div>
+
+                <form noValidate aria-busy={formik.isSubmitting} onSubmit={handleAccessibleSubmit} className="rounded-2xl border border-[var(--atlas-line)] bg-white p-5 shadow-[0_22px_55px_rgba(11,43,75,0.08)] sm:p-8">
+                    <div
+                        ref={messageRef}
+                        tabIndex={submitMessage ? -1 : undefined}
+                        role={submitMessage?.type === 'error' ? 'alert' : 'status'}
+                        aria-live={submitMessage?.type === 'error' ? 'assertive' : 'polite'}
+                        aria-atomic="true"
+                        className={`mb-5 min-h-6 rounded-xl px-4 py-3 text-sm font-semibold ${submitMessage ? (submitMessage.type === 'success' ? 'bg-[var(--atlas-teal-soft)] text-[var(--atlas-ink)]' : 'border border-[var(--atlas-red)] bg-[var(--atlas-paper)] text-[var(--atlas-red-dark)]') : 'sr-only'}`}
+                    >
+                        {submitMessage?.text}
                     </div>
-                    <div className='w-full p-1'>
-                        <Input
-                            id='email'
-                            name='email'
-                            label='Email'
-                            color='blue'
-                            value={formik.values.email}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            error={formik.touched.email && Boolean(formik.errors.email)}
-                            helperText={formik.touched.email && formik.errors.email}
-                        />
+                    <div className="grid gap-x-5 sm:grid-cols-2">
+                        {fields.map((field) => <RegistrationField key={field.name} formik={formik} field={field} />)}
                     </div>
-                    <div className='flex-column lg:flex gap-2 p-1'>
-                        <div className='w-full mb-2 lg:mb-0'>
-                            <Input
-                                id='telefono'
-                                name='telefono'
-                                label='Telefono'
-                                color='blue'
-                                value={formik.values.telefono}
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                                error={formik.touched.telefono && Boolean(formik.errors.telefono)}
-                                helperText={formik.touched.telefono && formik.errors.telefono}
-                            />
-                        </div>
-                        <div className='w-full'>
-                            <Input
-                                id='profesion'
-                                name='profesion'
-                                label='Profesion'
-                                color='blue'
-                                value={formik.values.profesion}
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                                error={formik.touched.profesion && Boolean(formik.errors.profesion)}
-                                helperText={formik.touched.profesion && formik.errors.profesion}
-                            />
-                        </div>
-                    </div>
-                    <div className='flex-column lg:flex gap-2 p-1'>
-                        <div className='w-full mb-2 lg:mb-0'>
-                            <Input
-                                id='provincia'
-                                name='provincia'
-                                label='Provincia'
-                                color='blue'
-                                value={formik.values.provincia}
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                                error={formik.touched.provincia && Boolean(formik.errors.provincia)}
-                                helperText={formik.touched.provincia && formik.errors.provincia}
-                            />
-                        </div>
-                        <div className='w-full'>
-                            <Input
-                                id='ciudad'
-                                name='ciudad'
-                                label='Ciudad'
-                                color='blue'
-                                value={formik.values.ciudad}
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                                error={formik.touched.ciudad && Boolean(formik.errors.ciudad)}
-                                helperText={formik.touched.ciudad && formik.errors.ciudad}
-                            />
-                        </div>
-                    </div>
-                    <div className='w-full p-1'>
-                        <Input
-                            id='instituto'
-                            name='instituto'
-                            label='Instituto'
-                            color='blue'
-                            value={formik.values.instituto}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            error={formik.touched.instituto && Boolean(formik.errors.instituto)}
-                            helperText={formik.touched.instituto && formik.errors.instituto}
-                        />
-                    </div>
-                    <div className='p-1'>
-                        <Button className='w-full bg-red-800' type='submit'>Registrarse</Button>
-                    </div>
+                    <button type="submit" disabled={formik.isSubmitting} className="mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-[var(--atlas-red)] px-6 py-3 font-bold text-white shadow-[0_10px_24px_rgba(132,56,51,0.18)] transition-colors hover:bg-[var(--atlas-red-dark)] disabled:cursor-wait disabled:opacity-70">
+                        {formik.isSubmitting ? 'Enviando registro…' : 'Registrarse'}
+                    </button>
                 </form>
             </div>
-        </div>
+        </section>
     )
 }

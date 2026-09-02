@@ -1,6 +1,5 @@
+import { ArrowIcon, PageIntro, Reveal } from '@/components/AtlasPage'
 import Link from 'next/link'
-import React from 'react'
-import { Button } from '../../components/material-tailwind';
 
 const page = () => {
     const papers = [
@@ -76,26 +75,31 @@ const page = () => {
         },
     ]
     return (
-        <div className='bg-blue-50 px-10 py-5 lg:px-20 lg:py-10'>
-            <h2 className='text-xl lg:text-2xl text-red-800 mx-5 my-3'>Bibliografía disponible para consultar</h2>
-            <hr className='border-red-800 mx-5' />
-            <br />
-            <p className='p-6 text-xl'>Acontinuación brindamos Bibliografía con sus correspondientes links de acceso
-                para que puedan ser consultados de manera completa:
-            </p>
-            <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 p-2 lg:p-6'>
-                {papers.map((item, index) => (
-                    <div className='rounded-md bg-white p-6' key={index}>
-                        <h3 className='text-[14px] text-gray-600 mb-5'>{item.underTitle}</h3>
-                        <h2 className='text-[20px] lg:text-[24px] leading-normal font-bold mb-5'>{item.title}</h2>
-                        <h4 className='text-[16px] text-blue-800 font-bold mt-2 mb-8'>{item.authors}</h4>
-                        <Link href={item.link} target="_blank">
-                            <Button className='bg-red-800'>Acceder al Paper</Button>
-                        </Link>
-                    </div>
+        <>
+            <PageIntro title="Bibliografía disponible para consultar" description="A continuación brindamos bibliografía con sus correspondientes enlaces de acceso para que puedan ser consultados de manera completa:" />
+            <section className="bg-white px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+                <Reveal className="mx-auto max-w-[1180px]">
+                    <ol className="border-t border-[var(--atlas-line)]">
+                {papers.map((item) => (
+                    <li className="border-b border-[var(--atlas-line)]" key={item.id}>
+                        <article className="grid gap-5 py-8 sm:grid-cols-[64px_minmax(0,1fr)] sm:py-10 lg:grid-cols-[80px_minmax(0,1fr)_auto] lg:items-start lg:gap-8">
+                            <span aria-hidden="true" className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--atlas-blue-soft)] text-lg font-extrabold text-[var(--atlas-ink)]">{String(item.id).padStart(2, '0')}</span>
+                            <div className="min-w-0">
+                                <p className="max-w-[65ch] text-sm font-semibold leading-relaxed text-[var(--atlas-teal-dark)]">{item.underTitle}</p>
+                                <h2 className="mt-3 max-w-[34ch] text-2xl font-extrabold leading-tight tracking-[-0.02em] text-[var(--atlas-ink)] sm:text-3xl">{item.title}</h2>
+                                <p className="mt-4 max-w-[65ch] leading-relaxed text-[var(--atlas-ink-soft)]">{item.authors}</p>
+                            </div>
+                            <Link href={item.link} target="_blank" rel="noopener noreferrer" aria-label={`Acceder a “${item.title}” (se abre en una nueva pestaña)`} className="inline-flex min-h-12 items-center justify-center gap-2 self-start rounded-xl border border-[var(--atlas-line)] bg-white px-5 py-3 font-bold text-[var(--atlas-ink)] transition-colors hover:bg-[var(--atlas-blue-soft)] sm:col-start-2 lg:col-start-auto">
+                                Acceder
+                                <ArrowIcon />
+                            </Link>
+                        </article>
+                    </li>
                 ))}
-            </div>
-        </div>
+                    </ol>
+                </Reveal>
+            </section>
+        </>
     )
 }
 

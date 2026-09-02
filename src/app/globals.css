@@ -3,10 +3,23 @@
 @tailwind utilities;
 
 :root {
-  --bg: white;
-  --textColor: black;
-  --softBg: #f0f0f0;
-  --softTextColor: #626262;
+  --atlas-paper: #f7fafc;
+  --atlas-white: #ffffff;
+  --atlas-ink: #0b2b4b;
+  --atlas-ink-soft: #36536c;
+  --atlas-blue: #2f6fa3;
+  --atlas-blue-soft: #dcebf4;
+  --atlas-teal: #3f8e95;
+  --atlas-teal-dark: #286970;
+  --atlas-teal-soft: #dceeed;
+  --atlas-red: #a94b45;
+  --atlas-red-dark: #843833;
+  --atlas-line: #cbdbe5;
+  --atlas-footer: #08243d;
+  --bg: var(--atlas-paper);
+  --textColor: var(--atlas-ink);
+  --softBg: #edf4f7;
+  --softTextColor: var(--atlas-ink-soft);
 }
 
 * {
@@ -17,8 +30,38 @@
 
 
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  min-width: 320px;
+  background: var(--atlas-paper);
+  color: var(--atlas-ink);
+  overflow-wrap: break-word;
+  accent-color: var(--atlas-red);
+}
+
+::selection {
+  background: var(--atlas-teal-soft);
+  color: var(--atlas-ink);
+}
+
+html {
+  scrollbar-color: var(--atlas-blue) var(--atlas-paper);
+}
+
+* {
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 0.75rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--atlas-paper);
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 0.2rem solid var(--atlas-paper);
+  border-radius: 999px;
+  background: var(--atlas-blue);
 }
 
 a {
@@ -26,4 +69,52 @@ a {
   text-decoration: none;
 }
 
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 1rem;
+  z-index: 100;
+  transform: translateY(-150%);
+  border-radius: 0 0 0.75rem 0.75rem;
+  background: var(--atlas-ink);
+  color: white;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  transition: transform 150ms ease-out;
+}
 
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+:focus-visible {
+  outline: 3px solid var(--atlas-blue);
+  outline-offset: 3px;
+}
+
+.focus-on-dark :focus-visible {
+  outline-color: #9fd7da;
+}
+
+.focus-on-dark .focus-on-light :focus-visible {
+  outline-color: var(--atlas-blue);
+}
+
+:focus,
+:target {
+  scroll-margin-top: 7rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  .skip-link,
+  .transition,
+  .transition-all,
+  .transition-colors,
+  .transition-transform {
+    transition-duration: 0ms !important;
+  }
+}

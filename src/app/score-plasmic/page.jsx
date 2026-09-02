@@ -1,19 +1,23 @@
-import React from 'react'
+import { PageIntro, Reveal } from '@/components/AtlasPage'
 
 const page = () => {
     return (
-        <div className='bg-blue-50 px-10 py-5 lg:px-20 lg:py-10'>
-            <h2 className='text-xl lg:text-2xl text-red-800 mx-5 my-3'>Links de interés</h2>
-            <hr className='border-red-800 mx-5' />
-            <div className='p-6 text-xl'>
-                <p>Aquí podrás encontrar links a distintos sitios de interés con información
-                    sobre MAT y algunas herramientas virtuales de uso científico.
-                </p>
-            </div>
-            <div className='m-auto flex bg-blue-200 w-[300px] lg:w-[800px] h-[300px] rounded-md'>
-                <h2 className='text-3xl flex items-center text-center m-auto font-bold'>PROXIMAMENTE INFORMACION UTIL</h2>
-            </div>
-        </div>
+        <>
+            <PageIntro title="Links de interés" description="Aquí podrás encontrar links a distintos sitios de interés con información sobre MAT y algunas herramientas virtuales de uso científico." />
+            <section className="bg-white px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+                <Reveal className="mx-auto max-w-[960px]">
+                    <div className="overflow-hidden rounded-2xl border border-[var(--atlas-line)] bg-[var(--atlas-blue-soft)] px-6 py-16 text-center sm:px-12 sm:py-20">
+                        <svg aria-hidden="true" viewBox="0 0 180 110" className="mx-auto h-auto w-44 text-[var(--atlas-teal)]" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M15 72c28-29 46-44 73-37s36 43 77 19" strokeDasharray="5 7" />
+                            <circle cx="15" cy="72" r="6" fill="currentColor" />
+                            <circle cx="88" cy="35" r="9" fill="var(--atlas-ink)" stroke="none" />
+                            <circle cx="165" cy="54" r="6" fill="var(--atlas-red)" stroke="none" />
+                        </svg>
+                        <h2 className="mx-auto mt-8 max-w-[18ch] text-balance text-3xl font-extrabold tracking-[-0.025em] text-[var(--atlas-ink)] sm:text-4xl">Próximamente información útil</h2>
+                    </div>
+                </Reveal>
+            </section>
+        </>
     )
 }
 
