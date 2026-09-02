@@ -112,7 +112,7 @@ components:
 
 RegArMAT se presenta como una red nacional de conocimiento clínico. Su mundo visual es un atlas científico argentino: papel luminoso, trazos topológicos, nodos clínicos y una paleta de azul marino, teal y rojo óxido. La composición es minimalista, profesional y científica; evita la portada sanitaria genérica basada en fotografías de laboratorio y mosaicos de tarjetas.
 
-La interfaz privilegia jerarquías grandes, navegación compacta, superficies claras y acciones inequívocas. El primer recorrido comunica propósito, comunidad convocada y las dos decisiones operativas —solicitar acceso o entrar a REDCap— mientras la figura territorial conceptual convierte la red en una firma reconocible. El movimiento es sutil y funcional: la red se conecta una vez y el resto de los estados responde sin espectáculo.
+La interfaz privilegia jerarquías grandes, navegación compacta, superficies claras y acciones inequívocas. El primer recorrido comunica propósito, comunidad convocada y las dos decisiones operativas —solicitar acceso o entrar a REDCap— mientras la figura territorial convierte la red en una firma reconocible. El movimiento es sutil y funcional: la figura entra una vez con el hero y el resto de los estados responde sin espectáculo.
 
 **Key Characteristics:**
 
@@ -251,7 +251,7 @@ El tablist vive dentro de un panel blanco sobre Azul Nocturno. En móvil los tab
 
 ### Network Figure
 
-La figura de hasta 620px es la firma visual: silueta territorial clara, curvas azules, teal, rojo óxido y una conexión secundaria punteada, nodos clínicos y tres rótulos blancos. Sus líneas se dibujan una sola vez durante 1.1s con la curva `[0.22, 1, 0.36, 1]` y demoras escalonadas de 0.12s a 0.25s. Los bloques del hero aparecen con desplazamientos verticales de 14–18px y duraciones de 0.7–0.85s. `MotionConfig` respeta la preferencia de movimiento reducido del usuario.
+La figura de hasta 620px es la firma visual: una imagen vertical de Argentina articula nodos y conexiones en azul, teal y rojo óxido alrededor del motivo clínico central. Se muestra completa, sin recorte, con una altura máxima de 560px en móvil y 640px en escritorio. Los bloques del hero aparecen con desplazamientos verticales de 14–18px y duraciones de 0.7–0.85s. `MotionConfig` respeta la preferencia de movimiento reducido del usuario.
 
 ### Footer
 
@@ -264,7 +264,7 @@ El footer usa Azul Nocturno, tres columnas desde 768px y foco cyan. El logotipo 
 - **Do** preservar `/logoregarmat.png`, su proporción y el reconocimiento institucional de RegArMAT.
 - **Do** mantener Azul de Red para foco visible sobre claro y cyan `#9fd7da` sobre oscuro, con outline de 3px y offset de 3px.
 - **Do** usar el rojo óxido para decisiones primarias y reservar el teal para conexiones, nodos y feedback suave.
-- **Do** respetar `prefers-reduced-motion` y hacer que la firma de red se conecte una sola vez de forma sutil.
+- **Do** respetar `prefers-reduced-motion` y limitar la firma de red a la entrada sutil compartida con el hero.
 - **Do** conservar navegación por teclado, semántica ARIA y objetivos interactivos de al menos 44px.
 - **Do** usar Teal Clínico Oscuro cuando el teal funciona como texto pequeño; reservar Teal Clínico para líneas, nodos y superficies gráficas.
 
