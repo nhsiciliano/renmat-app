@@ -40,7 +40,7 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu entorno local.
 
 ### Prerrequisitos
 
--   [Node.js](https://nodejs.org/es/) (versión 18.x o superior)
+-   [Node.js](https://nodejs.org/es/) (versión 24.x)
 -   [npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/) o [pnpm](https://pnpm.io/)
 
 ### Instalación
